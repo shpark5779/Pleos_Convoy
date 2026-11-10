@@ -1,0 +1,107 @@
+{
+  "code": "512AB939",
+  "destination": {
+    "name": "Gangneung City Hall",
+    "latitude": 37.7521,
+    "longitude": 128.8759,
+    "poi_id": "",
+    "address": "",
+    "source": "manual"
+  },
+  "members": {
+    "a2c6e9a7c2a0": {
+      "id": "a2c6e9a7c2a0",
+      "name": "Emulator A",
+      "location": {
+        "latitude": 37.566498333333335,
+        "longitude": 126.97799833333333,
+        "measured_at": 1794286690.571,
+        "source": "sdk"
+      },
+      "last_seen": 1794286696.287803,
+      "role": "driver"
+    },
+    "cda801b6fa6e": {
+      "id": "cda801b6fa6e",
+      "name": "Emulator B",
+      "location": {
+        "latitude": 36.3504,
+        "longitude": 127.3845,
+        "measured_at": 1794286690.441,
+        "source": "sdk"
+      },
+      "last_seen": 1794286691.5873375,
+      "role": "driver"
+    }
+  },
+  "proposal": {
+    "id": "d861dbd7a5f2e8e2",
+    "place": {
+      "name": "휴게소 테스트 1",
+      "latitude": 36.968449166666666,
+      "longitude": 127.18124916666667,
+      "poi_id": "",
+      "address": "",
+      "source": "demo"
+    },
+    "kind": "stop",
+    "plan": {
+      "destination": {
+        "name": "Gangneung City Hall",
+        "latitude": 37.7521,
+        "longitude": 128.8759,
+        "poi_id": "",
+        "address": "",
+        "source": "manual"
+      },
+      "waypoints": [
+        {
+          "name": "휴게소 테스트 1",
+          "latitude": 36.968449166666666,
+          "longitude": 127.18124916666667,
+          "poi_id": "",
+          "address": "",
+          "source": "demo"
+        }
+      ],
+      "driving_mode": "individual",
+      "arrival_at": null
+    },
+    "created_at": 1794286678.052585,
+    "proposer_id": "a2c6e9a7c2a0",
+    "status": "completed",
+    "votes": {
+      "a2c6e9a7c2a0": true,
+      "cda801b6fa6e": true
+    },
+    "applications": {
+      "a2c6e9a7c2a0": {
+        "state": "succeeded",
+        "detail": "TMAP 앱 경로 준비 완료 · 294km / 265분 · 차량 기본 내비 변경 아님",
+        "updated_at": 1794286685.5168684,
+        "attempt_id": "2f9a227b20c3a618"
+      },
+      "cda801b6fa6e": {
+        "state": "succeeded",
+        "detail": "TMAP 앱 경로 준비 완료 · 310km / 256분 · 차량 기본 내비 변경 아님",
+        "updated_at": 1794286684.005858,
+        "attempt_id": "8aced648a1c2bf91"
+      }
+    }
+  },
+  "revision": 58,
+  "leader_id": "a2c6e9a7c2a0",
+  "waypoints": [
+    {
+      "name": "휴게소 테스트 1",
+      "latitude": 36.968449166666666,
+      "longitude": 127.18124916666667,
+      "poi_id": "",
+      "address": "",
+      "source": "demo"
+    }
+  ],
+  "plan_version": 1,
+  "arrival_at": null,
+  "driving_mode": "individual"
+}

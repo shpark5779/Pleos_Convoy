@@ -1,0 +1,20 @@
+[
+  {
+    "name": "1번 · 건양대병원",
+    "road_segments": 34,
+    "max_between_segments_km": 0.0,
+    "max_road_edge_km": 0.78837,
+    "distance_to_destination_m": 2.77,
+    "seconds": 11492.0,
+    "meters": 272554.0
+  },
+  {
+    "name": "2번 · 고려대 세종",
+    "road_segments": 39,
+    "max_between_segments_km": 0.0,
+    "max_road_edge_km": 1.004677,
+    "distance_to_destination_m": 2.77,
+    "seconds": 11830.0,
+    "meters": 264907.0
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "phase": "SDK_READY",
+  "sdk_initialized": true,
+  "error_code": 0,
+  "detail": "정식 SDK 초기화 성공 · 모임에서 승인된 목적지·경유지로 안내를 요청할 수 있습니다.",
+  "client_id_configured": false,
+  "abis": "x86_64",
+  "ui_sdk_version": "1.0.0.0160"
+}

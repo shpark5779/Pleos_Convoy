@@ -52,6 +52,7 @@ class TwoEmulatorFlowTest {
         assertEquals(latitude, ownLocation.getDouble("latitude"), 0.00001)
         assertEquals(longitude, ownLocation.getDouble("longitude"), 0.00001)
         if (role == "owner") {
+            onView(withText("실제 장소 검색 (TMAP)")).perform(scrollTo(), click())
             onView(withText("휴게소 후보 찾기")).perform(scrollTo(), click())
             await("Candidate not displayed") {
                 runCatching { onView(withText(containsString("휴게소 테스트 1"))).perform(scrollTo(), click()) }.isSuccess
@@ -64,7 +65,7 @@ class TwoEmulatorFlowTest {
         }
         await("Both drivers must approve") { ConvoyApi.room(session).optJSONObject("proposal")?.optString("status") == "approved" }
         await("Apply button not displayed") {
-            runCatching { onView(withText("내 내비에 반영")).perform(scrollTo(), click()) }.isSuccess
+            runCatching { onView(withText("내 앱 경로에 반영")).perform(scrollTo(), click()) }.isSuccess
         }
         onView(withText("경로 변경 요청")).perform(click())
         var receipt = JSONObject()
@@ -73,6 +74,7 @@ class TwoEmulatorFlowTest {
             receipt.optString("state") in listOf("succeeded", "failed", "unconfirmed")
         }
         assertTrue(receipt.has("attempt_id"))
+        assertEquals(receipt.optString("detail"), "succeeded", receipt.optString("state"))
         Log.i("TwoEmulatorCheck", "$role receipt: ${receipt.optString("state")} / ${receipt.optString("detail")}")
     }
 }

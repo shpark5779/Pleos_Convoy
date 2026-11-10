@@ -1,4 +1,5 @@
 <resources>
+    <style name="Theme.NativeTmap" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
     <style name="Theme.PleosProjectV01" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:colorAccent">#087F8C</item>

@@ -52,6 +52,7 @@ class ConvoyFlowTest {
                 ConvoyApi.room(owner).getJSONObject("members").getJSONObject(owner.memberId).optJSONObject("location") != null
             }
             peerLocation()
+            onView(withText("실제 장소 검색 (TMAP)")).perform(scrollTo(), click())
             onView(withText("휴게소 후보 찾기")).perform(scrollTo(), click())
             Thread.sleep(1500)
             onView(withText(containsString("휴게소 테스트 1"))).perform(scrollTo(), click())
@@ -63,7 +64,7 @@ class ConvoyFlowTest {
             val id = pending.getString("id")
             ConvoyApi.room(peer, "decisions", JSONObject().put("proposal_id", id).put("approve", true))
             Thread.sleep(4000)
-            onView(withText("내 내비에 반영")).perform(scrollTo(), click())
+            onView(withText("내 앱 경로에 반영")).perform(scrollTo(), click())
             onView(withText("경로 변경 요청")).perform(click())
             val deadline = System.currentTimeMillis() + 55000
             var receipt = JSONObject()

@@ -79,7 +79,7 @@ class MainActivity : Activity() {
                 locationStatus.text = String.format(Locale.US, "SDK 위치 %.5f, %.5f", data.latitude, data.longitude)
             }
         } }, { message -> main.post { locationStatus.text = message } })
-        navigation = PleosNavigation(this) { navStatus.text = it }
+        navigation = PleosNavigation(this) { /* Legacy SDK retained for the opt-in probe only. */ }
         showSession()
         handleGleo(intent)
     }
@@ -158,16 +158,20 @@ class MainActivity : Activity() {
         membersBox = card(right, "동행 차량")
         proposalBox = card(right, "경유지 제안과 반영 상태")
         val searchCard = card(left, "함께 들를 곳 찾기")
-        realSearch = CheckBox(this).apply { text = "실제 장소 검색 (OpenStreetMap)"; minHeight = dp(56) }
+        realSearch = CheckBox(this).apply { text = "실제 장소 검색 (TMAP)"; isChecked = true; minHeight = dp(56) }
         searchCard.addView(realSearch)
-        searchCard.addView(label("실제 검색 시 차량들의 평균 좌표를 외부 검색 서버에 보냅니다. 해제하면 테스트 후보를 사용합니다.", 15f))
+        searchCard.addView(label("실제 검색은 TMAP에 차량 위치·목적지·경유지를 보내 도로 우회·대기 시간을 비교합니다. 해제하면 테스트 좌표입니다.", 15f))
         button(searchCard, "휴게소 후보 찾기") { search("rest_stop") }
         button(searchCard, "음식점 후보 찾기") { search("restaurant") }
         button(searchCard, "좌표로 경유지 직접 제안") { pointDialog("경유지", "", "", "") { propose(it) } }
         candidatesBox = column(); searchCard.addView(candidatesBox)
-        val sdkCard = card(right, "내비게이션 연결")
-        navStatus = label("SDK 연결 중", 17f); sdkCard.addView(navStatus)
-        sdkCard.addView(label("전원 승인 후 각 차량에서 ‘내 내비에 반영’을 누릅니다. 목적지와 경유지의 SDK 응답까지 확인해야 반영 완료로 표시합니다.", 15f))
+        val sdkCard = card(right, "TMAP 동행 경로")
+        navStatus = label("차량별 현재 위치에서 TMAP 도로 경로를 계산합니다.", 17f); sdkCard.addView(navStatus)
+        button(sdkCard, "정식 TMAP 내비 SDK") {
+            startActivity(Intent(this, NativeTmapActivity::class.java))
+        }
+        button(sdkCard, "TMAP 동행 지도 · ETA · 합류 후보") { openJourney() }
+        sdkCard.addView(label("지도에서 카페·휴게소·충전소 후보, 우회·대기 시간, 선두 차량 계획과 약속 시각을 확인하세요. 전원 승인 후 각자 앱 경로에 반영합니다. 회전별 음성 길안내와 차량 기본 내비 변경은 제공하지 않습니다.", 15f))
     }
 
     override fun onStart() {
@@ -290,9 +294,9 @@ class MainActivity : Activity() {
         }
         val ownState = applications.optJSONObject(me)?.optString("state")
         if (state in listOf("approved", "completed") && ownState in listOf("not_requested", "failed", "unconfirmed")) {
-            button(proposalBox, if (ownState == "not_requested") "내 내비에 반영" else "실제 내비 확인 후 다시 요청") {
-                AlertDialog.Builder(this).setTitle("내비게이션 경로 변경")
-                    .setMessage("${place.getString("name")}를 경유하도록 현재 내비 경로를 교체합니다. 기존 경유지는 유지되지 않습니다.\n${sourceLabel(place)} · 도로 방향과 진입 가능 여부를 확인하세요.")
+            button(proposalBox, if (ownState == "not_requested") "내 앱 경로에 반영" else "앱 경로 다시 요청") {
+                AlertDialog.Builder(this).setTitle("TMAP 앱 경로 계산")
+                    .setMessage("승인된 목적지와 경유지 순서로 내 차량의 도로 경로를 계산합니다. 차량 기본 내비는 변경되지 않습니다.\n${sourceLabel(place)}")
                     .setPositiveButton("경로 변경 요청") { _, _ -> applyRoute(id) }.setNegativeButton("취소", null).show()
             }
         }
@@ -324,35 +328,43 @@ class MainActivity : Activity() {
             updateRoom(response)
             val proposal = response.getJSONObject("proposal")
             val attempt = proposal.getJSONObject("applications").getJSONObject(current.memberId).getString("attempt_id")
-            navigation.apply(response.getJSONObject("destination"), proposal.getJSONObject("place")) { state, detail ->
-                navStatus.text = detail
-                io.execute {
-                    val result = runCatching { ConvoyApi.room(current, "applications", JSONObject().put("proposal_id", id)
-                        .put("attempt_id", attempt).put("state", state).put("detail", detail)) }
-                    main.post {
-                        if (!isDestroyed && session == current) result.onSuccess { updateRoom(it) }
-                            .onFailure { navStatus.text = "$detail\n결과 전송 실패: ${it.message}" }
-                    }
-                }
-            }
+            perform("TMAP 도로 경로 계산 중", {
+                val route = runCatching { ConvoyApi.room(current, "journey", JSONObject().put("action", "apply")
+                    .put("proposal_id", id).put("attempt_id", attempt)) }
+                val detail = route.fold(onSuccess = { val r = it.getJSONObject("route")
+                    "TMAP 앱 경로 준비 완료 · ${Math.round(r.getDouble("meters")/1000)}km / ${Math.round(r.getDouble("seconds")/60)}분 · 차량 기본 내비 변경 아님"
+                }, onFailure = { "TMAP 경로 실패: ${it.message}" })
+                ConvoyApi.room(current, "applications", JSONObject().put("proposal_id", id).put("attempt_id", attempt)
+                    .put("state", if (route.isSuccess) "succeeded" else "failed").put("detail", detail))
+            }) { updateRoom(it); navStatus.text = it.getJSONObject("proposal").getJSONObject("applications")
+                .getJSONObject(current.memberId).getString("detail") }
         }
     }
 
-    private fun search(category: String, gleo: Boolean = false) {
+    private fun openJourney() {
+        if (session == null) { status.text = "먼저 모임에 참가하세요."; return }
+        startActivity(Intent(this, JourneyActivity::class.java).putExtra("share_location", realLocation.isChecked))
+    }
+
+    private fun search(category: String, gleo: Boolean = false, query: String = "", mode: String = "middle", parking: Int = 0) {
         val current = session ?: run { status.text = "먼저 모임에 참가하세요."; return }
-        val source = if (realSearch.isChecked) "osm" else "demo"
-        perform("공동 후보 찾는 중", { ConvoyApi.room(current, "candidates", JSONObject().put("category", category).put("source", source)) }) { result ->
+        val source = if (realSearch.isChecked || gleo) "tmap" else "demo"
+        perform("공동 후보 찾는 중", { if (source == "tmap") ConvoyApi.room(current, "journey", JSONObject().put("action", "suggest").put("category", category)
+            .put("query", query).put("mode", mode).put("parking_cars", parking))
+            else ConvoyApi.room(current, "candidates", JSONObject().put("category", category).put("source", source)) }) { result ->
             candidatesBox.removeAllViews()
             candidatesBox.addView(label(result.getString("basis"), 16f)); candidatesBox.addView(label(result.getString("attribution"), 14f))
             val candidates = result.getJSONArray("candidates")
             if (candidates.length() == 0) candidatesBox.addView(label("주변에서 후보를 찾지 못했습니다. 좌표로 직접 제안할 수 있습니다.", 17f))
             for (i in 0 until candidates.length()) {
                 val candidate = candidates.getJSONObject(i)
-                button(candidatesBox, "${candidate.getString("name")}\n차량별 직선거리 중 최대 ${candidate.getDouble("max_straight_km")}km · 제안") { propose(candidate) }
+                val basis = if (source == "tmap") "최대 우회 ${Math.round(candidate.getDouble("max_detour_seconds")/60)}분 · 대기 ${Math.round(candidate.getDouble("wait_seconds")/60)}분"
+                    else "차량별 직선거리 중 최대 ${candidate.getDouble("max_straight_km")}km"
+                button(candidatesBox, "${candidate.getString("name")}\n$basis · 제안") { propose(candidate) }
             }
             if (gleo) respondGleo("FIND_MEETING_PLACES", "success", if (source == "demo")
                 "Test coordinate candidates are shown on screen. These are not real places."
-                else "Place candidates are shown on screen. Road access and travel time have not been verified.")
+                else "TMAP candidates with estimated driving detours and waiting times are shown on screen. Parking availability is unverified.")
         }
     }
     private fun propose(place: JSONObject) {
@@ -379,13 +391,21 @@ class MainActivity : Activity() {
         gleoRequest = action
         if (action == "FIND_MEETING_PLACES") {
             val category = params.optString("category", intent.getStringExtra("category") ?: "rest_stop")
-            if (category !in listOf("rest_stop", "restaurant")) { respondGleo(action, "fail", "Choose a rest stop or a restaurant."); return }
-            search(category, true)
-        } else perform("음성 요청 확인 중", { ConvoyApi.room(current) }) { response ->
-            updateRoom(response)
-            if (action == "SHOW_CONVOY_STATUS") respondGleo(action, "success", "The convoy status is shown on screen.",
-                JSONArray().put(JSONObject().put("vehicleCount", response.getJSONObject("members").length())))
+            if (category !in listOf("rest_stop", "restaurant", "cafe", "charging", "parking")) { respondGleo(action, "fail", "Choose a supported place category."); return }
+            search(category, true, params.optString("query"), params.optString("mode", "middle"), params.optInt("parking_cars", 0))
+        } else perform("음성 요청 확인 중", {
+            if (action == "SHOW_CONVOY_STATUS") ConvoyApi.room(current, "journey", JSONObject().put("action", "overview"))
+            else ConvoyApi.room(current)
+        }) { response ->
+            if (action == "SHOW_CONVOY_STATUS") {
+                val delay = Math.round(response.getDouble("arrival_spread_seconds")/60)
+                val routeCount = response.getJSONObject("routes").length()
+                navStatus.text = "TMAP 교통 예상 · ${routeCount}대 도착 차이 ${delay}분 · 지도에서 차량별 시간 확인"
+                respondGleo(action, "success", "TMAP 교통 예상으로 일행의 도착 시간 차이는 약 ${delay}분입니다.",
+                    JSONArray().put(JSONObject().put("vehicleCount", routeCount).put("arrivalSpreadMinutes", delay)))
+            }
             else {
+                updateRoom(response)
                 val proposal = response.optJSONObject("proposal")
                 if (proposal == null || proposal.optString("status") != "pending") respondGleo(action, "fail", "There is no pending proposal to review.")
                 else { reviewProposalId = proposal.getString("id"); showProposalPrompt(proposal)
@@ -421,6 +441,7 @@ class MainActivity : Activity() {
     private fun sourceLabel(place: JSONObject) = when (place.optString("source")) {
         "demo" -> "테스트 좌표 · 실제 장소 아님"
         "osm" -> "OpenStreetMap 장소 · 진입 방향/영업 여부 미확인"
+        "tmap" -> "TMAP 장소 · 진입 방향/주차·영업 여부 확인 필요"
         else -> "직접 지정한 좌표"
     }
     private fun stateLabel(state: String) = when (state) {
@@ -430,8 +451,8 @@ class MainActivity : Activity() {
         "cancelled" -> "취소된 제안"
         "completed" -> "차량별 처리 종료 · 아래 결과 확인"
         "not_requested" -> "반영 요청 전"
-        "requested" -> "SDK 확인 중"
-        "succeeded" -> "반영 확인 완료"
+        "requested" -> "앱 경로 계산 중"
+        "succeeded" -> "앱 경로 준비 완료"
         "failed" -> "반영 실패"
         "unconfirmed" -> "반영 확인 불가"
         else -> state

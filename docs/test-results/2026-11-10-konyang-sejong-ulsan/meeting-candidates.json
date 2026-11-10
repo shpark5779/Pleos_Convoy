@@ -1,0 +1,93 @@
+{
+  "arrival_spread_seconds": 212.0,
+  "computed_at": 1794287193.8776379,
+  "plan_version": 0,
+  "basis": "차량별 실제 도로 우회 시간 + 먼저 도착한 차량의 예상 대기 시간 순",
+  "charging_recommended": [],
+  "candidates": [
+    {
+      "name": "연다라휴게소",
+      "latitude": 36.1018732,
+      "longitude": 128.54133874,
+      "poi_id": "",
+      "tmap_poi_id": "10201296",
+      "source": "tmap",
+      "address": "경북 칠곡군 가산면 경북대로 1771",
+      "parking": "주차 가능 대수 미확인 · 방문 전 확인 필요",
+      "phone": "",
+      "charging_status": "충전기 가용 상태·커넥터·운영 시간 미확인",
+      "estimates": [
+        {
+          "member_id": "d552e7f05442",
+          "seconds": 7062.0,
+          "detour_seconds": 1655.0
+        },
+        {
+          "member_id": "a4872c0e8831",
+          "seconds": 7038.0,
+          "detour_seconds": 1417.0
+        }
+      ],
+      "wait_seconds": 24.0,
+      "max_detour_seconds": 1655.0,
+      "parking_required": 2
+    },
+    {
+      "name": "천평휴게소",
+      "latitude": 36.08829131,
+      "longitude": 128.53581183,
+      "poi_id": "",
+      "tmap_poi_id": "3358995",
+      "source": "tmap",
+      "address": "경북 칠곡군 가산면 송신로 23",
+      "parking": "주차 가능 대수 미확인 · 방문 전 확인 필요",
+      "phone": "054-971-6272",
+      "charging_status": "충전기 가용 상태·커넥터·운영 시간 미확인",
+      "estimates": [
+        {
+          "member_id": "d552e7f05442",
+          "seconds": 6612.0,
+          "detour_seconds": 1439.0
+        },
+        {
+          "member_id": "a4872c0e8831",
+          "seconds": 6919.0,
+          "detour_seconds": 1566.0
+        }
+      ],
+      "wait_seconds": 307.0,
+      "max_detour_seconds": 1566.0,
+      "parking_required": 2
+    },
+    {
+      "name": "학하휴게소",
+      "latitude": 36.09881697,
+      "longitude": 128.48581596,
+      "poi_id": "",
+      "tmap_poi_id": "2381200",
+      "source": "tmap",
+      "address": "경북 칠곡군",
+      "parking": "주차 가능 대수 미확인 · 방문 전 확인 필요",
+      "phone": "",
+      "charging_status": "충전기 가용 상태·커넥터·운영 시간 미확인",
+      "estimates": [
+        {
+          "member_id": "d552e7f05442",
+          "seconds": 6413.0,
+          "detour_seconds": 1362.0
+        },
+        {
+          "member_id": "a4872c0e8831",
+          "seconds": 7223.0,
+          "detour_seconds": 2041.0
+        }
+      ],
+      "wait_seconds": 810.0,
+      "max_detour_seconds": 2041.0,
+      "parking_required": 2
+    }
+  ],
+  "attribution": "TMAP 장소·자동차 경로 API",
+  "mode": "middle",
+  "notice": "중간/후반 경로 지점 주변 후보입니다. 분기 지점·휴게소 진입 방향·주차 대수·충전 가용성 보장 아님"
+}

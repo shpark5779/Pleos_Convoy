@@ -1,0 +1,49 @@
+{
+  "origins": [
+    {
+      "name": "건양대학교병원",
+      "latitude": 36.30480063,
+      "longitude": 127.34460621,
+      "source": "tmap",
+      "poi_id": "",
+      "address": "대전 서구 관저동로 158"
+    },
+    {
+      "name": "고려대학교 세종캠퍼스",
+      "latitude": 36.60926476,
+      "longitude": 127.28879738,
+      "source": "tmap",
+      "poi_id": "",
+      "address": "세종시 조치원읍 세종로 2511"
+    }
+  ],
+  "destination": {
+    "name": "울산광역시청",
+    "latitude": 35.53870119,
+    "longitude": 129.31098144,
+    "source": "tmap",
+    "poi_id": "",
+    "address": "울산 남구 중앙로 201"
+  },
+  "code": "DA569097",
+  "accepted_route_snapshot": [
+    {
+      "name": "1번 · 건양대병원",
+      "meters": 272573.0,
+      "seconds": 11492.0
+    },
+    {
+      "name": "2번 · 고려대 세종",
+      "meters": 267397.0,
+      "seconds": 11717.0
+    }
+  ],
+  "waypoint": {
+    "name": "건천휴게소 부산방향[경부선]",
+    "latitude": 35.83066449,
+    "longitude": 129.10860201,
+    "poi_id": "",
+    "address": "",
+    "source": "tmap"
+  }
+}

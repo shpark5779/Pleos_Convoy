@@ -1,0 +1,38 @@
+{
+  "code": "4124E703",
+  "origins": [
+    {
+      "name": "대전시청",
+      "latitude": 36.35062946,
+      "longitude": 127.38599016
+    },
+    {
+      "name": "타임월드",
+      "latitude": 36.35215692,
+      "longitude": 127.37824081
+    }
+  ],
+  "meeting": {
+    "name": "정부청사역 부근 테스트 경유점",
+    "latitude": 36.35768412,
+    "longitude": 127.38104596
+  },
+  "destination": {
+    "name": "한밭수목원 주차장1",
+    "latitude": 36.36548894,
+    "longitude": 127.39029492
+  },
+  "routes": [
+    {
+      "name": "1번 · 대전시청",
+      "meters": 4226.0,
+      "seconds": 1061.0
+    },
+    {
+      "name": "2번 · 타임월드",
+      "meters": 3202.0,
+      "seconds": 996.0
+    }
+  ],
+  "note": "TMAP REST road geometry / custom test guidance / emulator GPS replay, not TMAP navigation SDK"
+}

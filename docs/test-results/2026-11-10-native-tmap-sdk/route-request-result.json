@@ -1,0 +1,13 @@
+{
+  "phase": "ROUTE_FAILED",
+  "arrived_final": "false",
+  "updated_at": "1794298651765",
+  "waypoint_count": "1",
+  "plan_version": "1",
+  "simulation": "true",
+  "request_origin_longitude": "127.38599",
+  "via_passed": "false",
+  "error_code": "429",
+  "detail": "정식 SDK 경로 요청 실패 (429): : ",
+  "request_origin_latitude": "36.35062833333333"
+}

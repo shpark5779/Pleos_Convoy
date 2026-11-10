@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-10",
+  "debug_apk_build": "passed",
+  "android_test_apk_build": "passed",
+  "jvm_tests": 5,
+  "jvm_failures": 0,
+  "sdk_initialization": {
+    "emulator-5554": "SDK_READY",
+    "emulator-5556": "SDK_READY"
+  },
+  "last_native_route_error": 429,
+  "native_simulation_movement_verified": false,
+  "native_final_arrival_verified": false,
+  "additional_route_requests_after_429": 0,
+  "credentials_scan": "passed"
+}

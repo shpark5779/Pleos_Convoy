@@ -1,0 +1,4 @@
+--------- beginning of main
+11-10 16:43:19.428 19094 19094 I NativeTmapCheck: CONFIGURED
+11-10 16:43:19.437 19094 19094 I NativeTmapCheck: INITIALIZING
+11-10 16:43:23.405 19094 19094 I NativeTmapCheck: SDK_READY

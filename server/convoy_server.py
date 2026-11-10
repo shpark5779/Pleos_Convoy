@@ -6,10 +6,16 @@ import math
 import secrets
 import threading
 import time
+import sys
+from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.error import URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+from journey import Journey
+from tmap_service import TmapError
+
+sys.modules.setdefault("convoy_server", sys.modules[__name__])
 
 
 class ApiError(Exception):
@@ -40,7 +46,7 @@ def place(value):
             "longitude": number(value.get("longitude"), -180, 180),
             "poi_id": str(value.get("poi_id", ""))[:120],
             "address": str(value.get("address", ""))[:200],
-            "source": value.get("source") if value.get("source") in ("demo", "osm") else "manual"}
+            "source": value.get("source") if value.get("source") in ("demo", "osm", "tmap") else "manual"}
 
 
 def distance_km(a, b):
@@ -83,6 +89,7 @@ class Convoy:
         # ponytail: one lock for at most 100 local test rooms; use durable transactions before deployment.
         self.lock = threading.RLock()
         self.last_osm_search = 0.0
+        self.journey = Journey(self)
 
     def member(self, room, token):
         require(token.isascii(), "잘못된 인증 토큰입니다.", 403)
@@ -91,10 +98,11 @@ class Convoy:
                 return member
         raise ApiError(403, "참가 인증이 만료되었거나 잘못되었습니다.")
 
-    def add_member(self, room, name):
+    def add_member(self, room, name, role="driver"):
+        require(role in ("driver", "passenger"), "참가 역할을 확인하세요.")
         require(len(room["members"]) < 8, "이 시제품은 최대 8대까지 참가할 수 있습니다.", 409)
         member = {"id": secrets.token_hex(6), "name": text(name, 30),
-                  "token": secrets.token_urlsafe(32), "location": None, "last_seen": time.time()}
+                  "token": secrets.token_urlsafe(32), "location": None, "last_seen": time.time(), "role": role}
         room["members"][member["id"]] = member
         return member
 
@@ -119,6 +127,9 @@ class Convoy:
                 proposal["status"] = "completed"
 
     def handle(self, method, path, body, token):
+        parts = path.strip("/").split("/")
+        if method == "POST" and len(parts) == 3 and parts[0] == "rooms" and parts[2] == "journey":
+            return self.journey.handle(parts[1], token, body)
         with self.lock:
             now = time.time()
             for code in list(self.rooms):
@@ -134,6 +145,7 @@ class Convoy:
                     code = secrets.token_hex(4).upper()
                 room = {"code": code, "destination": destination, "members": {}, "proposal": None, "created_at": now, "revision": 1}
                 member = self.add_member(room, body.get("name"))
+                room.update(leader_id=member["id"], waypoints=[], plan_version=0, arrival_at=None, driving_mode="individual")
                 self.rooms[code] = room
                 return {"code": code, "member_id": member["id"], "token": member["token"], "room": self.snapshot(room)}
             parts = path.strip("/").split("/")
@@ -145,7 +157,7 @@ class Convoy:
             if method == "POST" and operation == "join":
                 require(not room["proposal"] or room["proposal"]["status"] not in ("pending", "approved"),
                         "제안 처리 중에는 참가할 수 없습니다.", 409)
-                member = self.add_member(room, body.get("name"))
+                member = self.add_member(room, body.get("name"), body.get("role", "driver"))
                 room["revision"] += 1
                 return {"code": room["code"], "member_id": member["id"], "token": member["token"], "room": self.snapshot(room)}
             member = self.member(room, token)
@@ -158,21 +170,43 @@ class Convoy:
                 latitude = number(body.get("latitude"), -90, 90)
                 longitude = number(body.get("longitude"), -180, 180)
                 measured_at = number(body.get("measured_at"), now - 30, now + 5)
-                require(body.get("source") in ("sdk", "demo"), "위치 출처가 필요합니다.")
+                require(body.get("source") in ("sdk", "demo", "phone"), "위치 출처가 필요합니다.")
+                if member["location"] and measured_at < member["location"]["measured_at"]:
+                    return self.snapshot(room)
                 member["location"] = {"latitude": latitude, "longitude": longitude,
                                       "measured_at": measured_at, "source": body["source"]}
             elif operation == "proposals":
-                require(len(room["members"]) >= 2, "최소 두 대가 참가해야 합니다.", 409)
+                drivers = {mid: m for mid, m in room["members"].items() if m["role"] == "driver"}
+                require(len(drivers) >= 2, "최소 두 대가 참가해야 합니다.", 409)
                 previous = room["proposal"]
                 require(not previous or previous["status"] in ("rejected", "cancelled", "completed"),
                         "진행 중인 제안을 먼저 완료하거나 취소하세요.", 409)
-                room["proposal"] = {"id": secrets.token_hex(8), "place": place(body.get("place")),
+                kind = body.get("kind", "stop")
+                require(kind in ("stop", "plan"), "제안 종류를 확인하세요.")
+                require(kind != "plan" or room["leader_id"] == member["id"], "선두 차량만 이동 계획을 제안할 수 있습니다.", 403)
+                target = place(body.get("place"))
+                if kind == "plan":
+                    raw_vias = body.get("waypoints", [])
+                    require(isinstance(raw_vias, list) and len(raw_vias) <= 5, "경유지는 최대 5개입니다.")
+                    new_vias = [place(p) for p in raw_vias]
+                    mode = body.get("driving_mode", "individual")
+                    require(mode in ("same", "individual"), "주행 모드를 확인하세요.")
+                    arrival = body.get("arrival_at")
+                    if arrival is not None:
+                        arrival = number(arrival, now, now+7*86400)
+                else:
+                    require(len(room["waypoints"]) < 5, "경유지는 최대 5개입니다. 선두 차량이 계획을 정리하세요.", 409)
+                    new_vias, mode, arrival = [*room["waypoints"], target], room["driving_mode"], room["arrival_at"]
+                room["proposal"] = {"id": secrets.token_hex(8), "place": target, "kind": kind,
+                                    "plan": {"destination": target if kind == "plan" else room["destination"],
+                                             "waypoints": new_vias, "driving_mode": mode, "arrival_at": arrival},
                                     "created_at": now, "proposer_id": member["id"], "status": "pending",
-                                    "votes": {mid: (True if mid == member["id"] else None) for mid in room["members"]},
+                                    "votes": {mid: (True if mid == member["id"] else None) for mid in drivers},
                                     "applications": {mid: {"state": "not_requested", "detail": "", "updated_at": now}
-                                                     for mid in room["members"]}}
+                                                     for mid in drivers}}
             elif operation == "decisions":
                 proposal = self.proposal(room, body)
+                require(member["id"] in proposal["votes"], "동승자는 제안만 할 수 있습니다. 운전자가 승인하세요.", 403)
                 require(proposal["status"] == "pending", "이미 결정된 제안입니다.", 409)
                 require(type(body.get("approve")) is bool, "승인 여부가 필요합니다.")
                 proposal["votes"][member["id"]] = body["approve"]
@@ -180,6 +214,8 @@ class Convoy:
                     proposal["status"] = "rejected"
                 elif all(v is True for v in proposal["votes"].values()):
                     proposal["status"] = "approved"
+                    room.update(copy.deepcopy(proposal["plan"]))
+                    room["plan_version"] += 1
             elif operation == "applications":
                 proposal = self.proposal(room, body)
                 require(proposal["status"] in ("approved", "completed"), "전원 승인 전에는 경로를 바꿀 수 없습니다.", 409)
@@ -206,9 +242,16 @@ class Convoy:
                 if proposal and proposal["status"] == "pending":
                     proposal["status"] = "cancelled"
                 del room["members"][member["id"]]
+                if room["leader_id"] == member["id"]:
+                    room["leader_id"] = next((mid for mid, m in room["members"].items() if m["role"] == "driver"), "")
                 if not room["members"]:
                     del self.rooms[room["code"]]
                 return {"left": True}
+            elif operation == "profile":
+                require(member["role"] == "driver", "운전자 차량의 배터리 정보만 설정하세요.", 403)
+                member["battery_pct"] = None if body.get("battery_pct") is None else number(body["battery_pct"], 0, 100)
+                member["range_km"] = None if body.get("range_km") is None else number(body["range_km"], 0, 1500)
+                member["battery_source"] = "user_input"
             elif operation == "candidates":
                 category, source = body.get("category"), body.get("source")
                 require(category in ("rest_stop", "restaurant") and source in ("demo", "osm"), "검색 종류를 확인하세요.")
@@ -253,6 +296,17 @@ class Handler(BaseHTTPRequestHandler):
     def respond(self, method):
         try:
             self.connection.settimeout(5)
+            if method == "GET" and self.path in ("/", "/journey", "/driving.js"):
+                script = self.path == "/driving.js"
+                data = Path(__file__).with_name("driving.js" if script else "journey.html").read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", ("application/javascript" if script else "text/html")+"; charset=utf-8")
+                self.send_header("Content-Length", str(len(data)))
+                self.send_header("Cache-Control", "no-store")
+                self.send_header("Referrer-Policy", "no-referrer")
+                self.end_headers()
+                self.wfile.write(data)
+                return
             size = int(self.headers.get("Content-Length", "0"))
             require(0 <= size <= 16384, "요청 크기 제한입니다.", 413)
             body = json.loads(self.rfile.read(size)) if size else {}
@@ -264,6 +318,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(200, result)
         except ApiError as error:
             self.send_json(error.status, {"error": error.message})
+        except TmapError as error:
+            self.send_json(502, {"error": str(error)})
         except (ValueError, UnicodeError):
             self.send_json(400, {"error": "올바른 JSON 요청이 필요합니다."})
         except (BrokenPipeError, ConnectionResetError, TimeoutError):
@@ -291,9 +347,10 @@ def make_server(host="127.0.0.1", port=8765):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--host", default="127.0.0.1")
     args = parser.parse_args()
-    server = make_server(port=args.port)
-    print(f"Convoy development server: http://127.0.0.1:{server.server_port} (memory only)", flush=True)
+    server = make_server(host=args.host, port=args.port)
+    print(f"Convoy development server: http://{args.host}:{server.server_port} (memory only)", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

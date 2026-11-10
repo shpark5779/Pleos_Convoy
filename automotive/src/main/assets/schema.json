@@ -4,22 +4,74 @@
   "invokeWord": "같이 가요",
   "version": "1.0",
   "actionCalls": [
-    {"type": "function", "function": {
-      "component": "activity", "name": "SHOW_CONVOY_STATUS",
-      "description": "Show the current convoy participants and their shared travel progress.",
-      "parameters": {"type": "object", "properties": {}, "required": []}
-    }},
-    {"type": "function", "function": {
-      "component": "activity", "name": "FIND_MEETING_PLACES",
-      "description": "Find candidate shared stops using the convoy vehicles' recent locations and the selected place search source.",
-      "parameters": {"type": "object", "properties": {
-        "category": {"type": "string", "enum": ["rest_stop", "restaurant"], "description": "The category of shared stopping place."}
-      }, "required": ["category"]}
-    }},
-    {"type": "function", "function": {
-      "component": "activity", "name": "REVIEW_CONVOY_PROPOSAL",
-      "description": "Open the pending shared stop proposal for the driver to explicitly approve or decline on screen.",
-      "parameters": {"type": "object", "properties": {}, "required": []}
-    }}
+    {
+      "type": "function",
+      "function": {
+        "component": "activity",
+        "name": "SHOW_CONVOY_STATUS",
+        "description": "Return the TMAP traffic-based estimated arrival time spread for convoy vehicles.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "component": "activity",
+        "name": "FIND_MEETING_PLACES",
+        "description": "Compare shared stopping places using TMAP road detours and waiting times. Parking capacity is unverified.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "enum": [
+                "rest_stop",
+                "restaurant",
+                "cafe",
+                "charging",
+                "parking"
+              ]
+            },
+            "query": {
+              "type": "string",
+              "description": "Optional place name or search keyword."
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "middle",
+                "before_end"
+              ]
+            },
+            "parking_cars": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8,
+              "description": "Requested parking capacity; availability requires confirmation."
+            }
+          },
+          "required": [
+            "category"
+          ]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "component": "activity",
+        "name": "REVIEW_CONVOY_PROPOSAL",
+        "description": "Open the pending shared stop proposal for the driver to explicitly approve or decline on screen.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    }
   ]
 }

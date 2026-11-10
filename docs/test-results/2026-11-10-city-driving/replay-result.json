@@ -1,0 +1,265 @@
+{
+  "samples": [
+    {
+      "elapsed": 0.0,
+      "locations": [
+        {
+          "latitude": 36.35062833333333,
+          "longitude": 127.38599,
+          "measured_at": 1794289686.562,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.352153333333334,
+          "longitude": 127.378215,
+          "measured_at": 1794289690.065,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 30.8,
+      "locations": [
+        {
+          "latitude": 36.34902,
+          "longitude": 127.38645166666667,
+          "measured_at": 1794289719.585,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.353593333333336,
+          "longitude": 127.37994666666667,
+          "measured_at": 1794289720.396,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 61.8,
+      "locations": [
+        {
+          "latitude": 36.349025,
+          "longitude": 127.382995,
+          "measured_at": 1794289750.603,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.355441666666664,
+          "longitude": 127.37955833333334,
+          "measured_at": 1794289750.414,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 92.9,
+      "locations": [
+        {
+          "latitude": 36.35158666666667,
+          "longitude": 127.38295833333333,
+          "measured_at": 1794289779.621,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.357615,
+          "longitude": 127.38033333333334,
+          "measured_at": 1794289781.435,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 124.1,
+      "locations": [
+        {
+          "latitude": 36.354575,
+          "longitude": 127.38296833333334,
+          "measured_at": 1794289812.639,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.35761166666666,
+          "longitude": 127.381015,
+          "measured_at": 1794289811.973,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 155.2,
+      "locations": [
+        {
+          "latitude": 36.35584,
+          "longitude": 127.38106333333333,
+          "measured_at": 1794289842.658,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.35761166666666,
+          "longitude": 127.381015,
+          "measured_at": 1794289842.476,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 186.0,
+      "locations": [
+        {
+          "latitude": 36.35740833333333,
+          "longitude": 127.379575,
+          "measured_at": 1794289873.678,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.35761166666666,
+          "longitude": 127.381015,
+          "measured_at": 1794289875.496,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 217.0,
+      "locations": [
+        {
+          "latitude": 36.35761166666666,
+          "longitude": 127.38142,
+          "measured_at": 1794289903.695,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.35761166666666,
+          "longitude": 127.38165166666667,
+          "measured_at": 1794289905.514,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 248.0,
+      "locations": [
+        {
+          "latitude": 36.357663333333335,
+          "longitude": 127.38511,
+          "measured_at": 1794289935.714,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.357665,
+          "longitude": 127.38487833333333,
+          "measured_at": 1794289935.536,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 279.1,
+      "locations": [
+        {
+          "latitude": 36.357655,
+          "longitude": 127.38857833333333,
+          "measured_at": 1794289967.736,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.357656666666664,
+          "longitude": 127.38834666666666,
+          "measured_at": 1794289966.561,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 310.1,
+      "locations": [
+        {
+          "latitude": 36.35896666666667,
+          "longitude": 127.39027,
+          "measured_at": 1794289996.756,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.35915333333333,
+          "longitude": 127.39027,
+          "measured_at": 1794289998.582,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 341.3,
+      "locations": [
+        {
+          "latitude": 36.36177,
+          "longitude": 127.39027333333334,
+          "measured_at": 1794290027.772,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.36177,
+          "longitude": 127.39027333333334,
+          "measured_at": 1794290027.599,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 372.4,
+      "locations": [
+        {
+          "latitude": 36.36474666666667,
+          "longitude": 127.390365,
+          "measured_at": 1794290060.795,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.36457333333333,
+          "longitude": 127.39032333333333,
+          "measured_at": 1794290059.618,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 403.6,
+      "locations": [
+        {
+          "latitude": 36.36488166666667,
+          "longitude": 127.39293833333333,
+          "measured_at": 1794290090.821,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.36487666666667,
+          "longitude": 127.39316833333334,
+          "measured_at": 1794290090.639,
+          "source": "sdk"
+        }
+      ]
+    },
+    {
+      "elapsed": 434.8,
+      "locations": [
+        {
+          "latitude": 36.365455,
+          "longitude": 127.39047,
+          "measured_at": 1794290121.838,
+          "source": "sdk"
+        },
+        {
+          "latitude": 36.365458333333336,
+          "longitude": 127.39026666666666,
+          "measured_at": 1794290123.659,
+          "source": "sdk"
+        }
+      ]
+    }
+  ],
+  "arrival_ui": [
+    true,
+    true
+  ],
+  "duration_seconds": 432.477256896223,
+  "speed_kph": 36
+}

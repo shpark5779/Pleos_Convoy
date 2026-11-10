@@ -14,7 +14,7 @@ from urllib.request import Request, urlopen
 def main():
     root = Path(__file__).resolve().parent.parent
     adb = str(Path(os.environ["LOCALAPPDATA"]) / "Android/Sdk/platform-tools/adb.exe")
-    output = root / "docs/test-results/2026-11-10-seoul-daejeon-gangneung"
+    output = root / "docs/test-results/2026-11-10-tmap-two-emulators"
     output.mkdir(parents=True, exist_ok=True)
     devices = [line.split()[0] for line in subprocess.check_output([adb, "devices"], text=True).splitlines()
                if line.startswith("emulator-") and "\tdevice" in line]
@@ -47,15 +47,17 @@ def main():
                    "com.example.pleosprojectv01.convoy.test/androidx.test.runner.AndroidJUnitRunner"]
         result = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=210)
         (output / f"{role}-instrumentation.txt").write_text(result.stdout + result.stderr, encoding="utf-8")
-        location = subprocess.check_output([adb, "-s", device, "shell", "dumpsys", "location"])
-        (output / f"{role}-location.txt").write_bytes(location)
-        log = subprocess.check_output([adb, "-s", device, "logcat", "-d", "-t", "2000",
-                                       "-s", "navi_engine:I", "GpsLocationSource:W"])
-        (output / f"{role}-navigation-log.txt").write_bytes(log)
-        screenshot = subprocess.check_output([adb, "-s", device, "exec-out", "screencap", "-p"])
-        (output / f"{role}-navigation.png").write_bytes(screenshot)
+        map_command = [adb, "-s", device, "shell", "am", "instrument", "-w", "-r",
+                       "-e", "class", "com.example.pleosprojectv01.JourneyMapTest", "-e", "tmap_map", "true",
+                       "com.example.pleosprojectv01.convoy.test/androidx.test.runner.AndroidJUnitRunner"]
+        map_result = subprocess.run(map_command, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=160)
+        (output / f"{role}-map-instrumentation.txt").write_text(map_result.stdout+map_result.stderr, encoding="utf-8")
+        current_user = subprocess.check_output([adb, "-s", device, "shell", "am", "get-current-user"], text=True).strip()
+        screenshot = subprocess.check_output([adb, "-s", device, "exec-out", "run-as", "com.example.pleosprojectv01.convoy",
+                                              "--user", current_user, "cat", "files/tmap-map.png"])
+        (output / f"{role}-tmap.png").write_bytes(screenshot)
         print(f'{device} {role}: {result.stdout.strip()}', flush=True)
-        return result.returncode == 0 and "OK (1 test)" in result.stdout
+        return result.returncode == 0 and "OK (1 test)" in result.stdout and "OK (1 test)" in map_result.stdout
 
     with ThreadPoolExecutor(max_workers=2) as pool:
         results = list(pool.map(run, [(devices[0], "owner", owner), (devices[1], "peer", peer)]))

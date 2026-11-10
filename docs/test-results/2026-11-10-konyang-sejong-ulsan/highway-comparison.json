@@ -1,0 +1,90 @@
+[
+  {
+    "name": "추풍령휴게소 부산방향[경부선]",
+    "latitude": 36.20268516,
+    "longitude": 128.00096716,
+    "source": "tmap",
+    "poi_id": "",
+    "estimates": [
+      {
+        "origin": "건양대학교병원",
+        "to_minutes": 56.0,
+        "detour_minutes": 1.9,
+        "total_minutes": 192.6
+      },
+      {
+        "origin": "고려대학교 세종캠퍼스",
+        "to_minutes": 80.1,
+        "detour_minutes": 25.7,
+        "total_minutes": 218.1
+      }
+    ],
+    "wait_minutes": 24.1
+  },
+  {
+    "name": "김천휴게소 부산방향[경부선]",
+    "latitude": 36.12977974,
+    "longitude": 128.16256594,
+    "source": "tmap",
+    "poi_id": "",
+    "estimates": [
+      {
+        "origin": "건양대학교병원",
+        "to_minutes": 67.9,
+        "detour_minutes": 3.3,
+        "total_minutes": 194.0
+      },
+      {
+        "origin": "고려대학교 세종캠퍼스",
+        "to_minutes": 92.0,
+        "detour_minutes": 27.6,
+        "total_minutes": 220.0
+      }
+    ],
+    "wait_minutes": 24.1
+  },
+  {
+    "name": "군위영천휴게소 영천방향[고속도로휴게소]",
+    "latitude": 36.07226852,
+    "longitude": 128.70679719,
+    "source": "tmap",
+    "poi_id": "",
+    "estimates": [
+      {
+        "origin": "건양대학교병원",
+        "to_minutes": 120.6,
+        "detour_minutes": 14.2,
+        "total_minutes": 204.9
+      },
+      {
+        "origin": "고려대학교 세종캠퍼스",
+        "to_minutes": 112.7,
+        "detour_minutes": 4.3,
+        "total_minutes": 196.7
+      }
+    ],
+    "wait_minutes": 7.9
+  },
+  {
+    "name": "건천휴게소 부산방향[경부선]",
+    "latitude": 35.83066449,
+    "longitude": 129.10860201,
+    "source": "tmap",
+    "poi_id": "",
+    "estimates": [
+      {
+        "origin": "건양대학교병원",
+        "to_minutes": 141.2,
+        "detour_minutes": 1.5,
+        "total_minutes": 192.2
+      },
+      {
+        "origin": "고려대학교 세종캠퍼스",
+        "to_minutes": 142.9,
+        "detour_minutes": 1.5,
+        "total_minutes": 193.9
+      }
+    ],
+    "wait_minutes": 1.7
+  }
+]

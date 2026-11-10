@@ -1,0 +1,107 @@
+{
+  "code": "DA569097",
+  "destination": {
+    "name": "울산광역시청",
+    "latitude": 35.53870119,
+    "longitude": 129.31098144,
+    "poi_id": "",
+    "address": "울산 남구 중앙로 201",
+    "source": "tmap"
+  },
+  "members": {
+    "d552e7f05442": {
+      "id": "d552e7f05442",
+      "name": "1번 · 건양대병원",
+      "location": {
+        "latitude": 36.3048,
+        "longitude": 127.344605,
+        "measured_at": 1794287840.349,
+        "source": "sdk"
+      },
+      "last_seen": 1794287842.649443,
+      "role": "driver"
+    },
+    "a4872c0e8831": {
+      "id": "a4872c0e8831",
+      "name": "2번 · 고려대 세종",
+      "location": {
+        "latitude": 36.60926333333333,
+        "longitude": 127.28879666666667,
+        "measured_at": 1794287839.2,
+        "source": "sdk"
+      },
+      "last_seen": 1794287842.375772,
+      "role": "driver"
+    }
+  },
+  "proposal": {
+    "id": "ebadac4af1bf39ca",
+    "place": {
+      "name": "건천휴게소 부산방향[경부선]",
+      "latitude": 35.83066449,
+      "longitude": 129.10860201,
+      "poi_id": "",
+      "address": "",
+      "source": "tmap"
+    },
+    "kind": "stop",
+    "plan": {
+      "destination": {
+        "name": "울산광역시청",
+        "latitude": 35.53870119,
+        "longitude": 129.31098144,
+        "poi_id": "",
+        "address": "울산 남구 중앙로 201",
+        "source": "tmap"
+      },
+      "waypoints": [
+        {
+          "name": "건천휴게소 부산방향[경부선]",
+          "latitude": 35.83066449,
+          "longitude": 129.10860201,
+          "poi_id": "",
+          "address": "",
+          "source": "tmap"
+        }
+      ],
+      "driving_mode": "individual",
+      "arrival_at": null
+    },
+    "created_at": 1794287306.2417665,
+    "proposer_id": "d552e7f05442",
+    "status": "completed",
+    "votes": {
+      "d552e7f05442": true,
+      "a4872c0e8831": true
+    },
+    "applications": {
+      "d552e7f05442": {
+        "state": "succeeded",
+        "detail": "TMAP 앱 경로 계산 완료 · 차량 기본 내비 변경 아님",
+        "updated_at": 1794287614.4222057,
+        "attempt_id": "32f9150da544377a"
+      },
+      "a4872c0e8831": {
+        "state": "succeeded",
+        "detail": "TMAP 앱 경로 계산 완료 · 차량 기본 내비 변경 아님",
+        "updated_at": 1794287612.461793,
+        "attempt_id": "c14ef900b2155444"
+      }
+    }
+  },
+  "revision": 753,
+  "leader_id": "d552e7f05442",
+  "waypoints": [
+    {
+      "name": "건천휴게소 부산방향[경부선]",
+      "latitude": 35.83066449,
+      "longitude": 129.10860201,
+      "poi_id": "",
+      "address": "",
+      "source": "tmap"
+    }
+  ],
+  "plan_version": 1,
+  "arrival_at": null,
+  "driving_mode": "individual"
+}

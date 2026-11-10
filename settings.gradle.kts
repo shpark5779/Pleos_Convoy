@@ -17,6 +17,10 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
+            url = uri("https://devrepo.tmapadmin.com/repository/tmap-sdk-release/")
+            content { includeGroup("com.tmapmobility.tmap") }
+        }
+        maven {
             url = uri("https://nexus-playground.pleos.ai/repository/maven-releases/")
         }
     }
