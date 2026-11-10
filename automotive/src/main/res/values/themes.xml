@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.PleosProjectV01" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#087F8C</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#F3F6FA</item>
+        <item name="android:navigationBarColor">#14233B</item>
+    </style>
+</resources>

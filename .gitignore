@@ -1,0 +1,30 @@
+# Local IDE and build state
+.idea/
+.gradle/
+.kotlin/
+**/build/
+local.properties
+*.iml
+
+# Python runtime files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Credentials and signing material
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+credentials.json
+
+# Packaged applications and OS files
+*.apk
+*.aab
+.DS_Store
+Thumbs.db

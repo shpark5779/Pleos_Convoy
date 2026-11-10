@@ -1,0 +1,33 @@
+{
+  "note": "nearby is a sampled position comparison, not proof of continuous tracking or route success",
+  "devices": [
+    {
+      "device": "emulator-5554",
+      "status": "mismatch",
+      "nmea_checksum_errors_in_log": 26,
+      "gps_lat_lon": [
+        37.566498,
+        126.977998
+      ],
+      "navigation_lat_lon": [
+        37.4127212,
+        127.094681
+      ],
+      "distance_km": 19.959
+    },
+    {
+      "device": "emulator-5556",
+      "status": "mismatch",
+      "nmea_checksum_errors_in_log": 40,
+      "gps_lat_lon": [
+        36.3504,
+        127.3845
+      ],
+      "navigation_lat_lon": [
+        37.4127212,
+        127.094681
+      ],
+      "distance_km": 120.904
+    }
+  ]
+}

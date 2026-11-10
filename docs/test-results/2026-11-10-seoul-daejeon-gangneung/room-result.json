@@ -1,0 +1,68 @@
+{
+  "code": "97C64047",
+  "destination": {
+    "name": "Gangneung City Hall",
+    "latitude": 37.7521,
+    "longitude": 128.8759,
+    "poi_id": "",
+    "address": "",
+    "source": "manual"
+  },
+  "members": {
+    "4e395e18249c": {
+      "id": "4e395e18249c",
+      "name": "Emulator A",
+      "location": {
+        "latitude": 37.566498333333335,
+        "longitude": 126.97799833333333,
+        "measured_at": 1794269821.432,
+        "source": "sdk"
+      },
+      "last_seen": 1794269871.6000671
+    },
+    "316bfd8c66d7": {
+      "id": "316bfd8c66d7",
+      "name": "Emulator B",
+      "location": {
+        "latitude": 36.3504,
+        "longitude": 127.3845,
+        "measured_at": 1794269820.207,
+        "source": "sdk"
+      },
+      "last_seen": 1794269869.488949
+    }
+  },
+  "proposal": {
+    "id": "305e2f5ec6536cfe",
+    "place": {
+      "name": "휴게소 테스트 1",
+      "latitude": 36.968449166666666,
+      "longitude": 127.18124916666667,
+      "poi_id": "",
+      "address": "",
+      "source": "demo"
+    },
+    "created_at": 1794269820.990546,
+    "proposer_id": "4e395e18249c",
+    "status": "completed",
+    "votes": {
+      "4e395e18249c": true,
+      "316bfd8c66d7": true
+    },
+    "applications": {
+      "4e395e18249c": {
+        "state": "unconfirmed",
+        "detail": "내비 응답을 확인하지 못했습니다. 실제 내비 화면을 확인하세요.",
+        "updated_at": 1794269870.3555818,
+        "attempt_id": "c607014e15e19088"
+      },
+      "316bfd8c66d7": {
+        "state": "unconfirmed",
+        "detail": "내비 응답을 확인하지 못했습니다. 실제 내비 화면을 확인하세요.",
+        "updated_at": 1794269869.171177,
+        "attempt_id": "5cf2945cb07d3417"
+      }
+    }
+  },
+  "revision": 230
+}

@@ -1,0 +1,25 @@
+INSTRUMENTATION_STATUS: class=com.example.pleosprojectv01.NavigationLocationProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=
+com.example.pleosprojectv01.NavigationLocationProbeTest:
+INSTRUMENTATION_STATUS: test=queryNavigationCurrentPosition
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: navigation_position={"callback_received":true,"latitude":37.4127212,"longitude":127.094681}
+INSTRUMENTATION_STATUS_CODE: 2
+INSTRUMENTATION_STATUS: class=com.example.pleosprojectv01.NavigationLocationProbeTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=1
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=queryNavigationCurrentPosition
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.219
+
+OK (1 test)
+
+
+INSTRUMENTATION_CODE: -1

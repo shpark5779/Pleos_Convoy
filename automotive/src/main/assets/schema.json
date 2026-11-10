@@ -1,0 +1,25 @@
+{
+  "packageName": "com.example.pleosprojectv01.convoy",
+  "appDescription": "A convoy travel app that shares participating vehicles' progress and helps drivers review common stop proposals.",
+  "invokeWord": "같이 가요",
+  "version": "1.0",
+  "actionCalls": [
+    {"type": "function", "function": {
+      "component": "activity", "name": "SHOW_CONVOY_STATUS",
+      "description": "Show the current convoy participants and their shared travel progress.",
+      "parameters": {"type": "object", "properties": {}, "required": []}
+    }},
+    {"type": "function", "function": {
+      "component": "activity", "name": "FIND_MEETING_PLACES",
+      "description": "Find candidate shared stops using the convoy vehicles' recent locations and the selected place search source.",
+      "parameters": {"type": "object", "properties": {
+        "category": {"type": "string", "enum": ["rest_stop", "restaurant"], "description": "The category of shared stopping place."}
+      }, "required": ["category"]}
+    }},
+    {"type": "function", "function": {
+      "component": "activity", "name": "REVIEW_CONVOY_PROPOSAL",
+      "description": "Open the pending shared stop proposal for the driver to explicitly approve or decline on screen.",
+      "parameters": {"type": "object", "properties": {}, "required": []}
+    }}
+  ]
+}

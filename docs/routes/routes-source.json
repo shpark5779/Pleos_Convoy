@@ -1,0 +1,34 @@
+[
+  {
+    "name": "A-seoul-to-gangneung",
+    "url": "https://router.project-osrm.org/route/v1/driving/126.978,37.5665;128.8759,37.7521?overview=full&geometries=geojson&annotations=duration&steps=false",
+    "points": 3066,
+    "distance_km": 216.46,
+    "estimated_minutes": 178.5,
+    "snapped_start_lon_lat": [
+      126.977993,
+      37.567005
+    ],
+    "snapped_end_lon_lat": [
+      128.875493,
+      37.751989
+    ],
+    "generated_at": "2026-11-10T00:23:54+00:00"
+  },
+  {
+    "name": "B-daejeon-to-gangneung",
+    "url": "https://router.project-osrm.org/route/v1/driving/127.3845,36.3504;128.8759,37.7521?overview=full&geometries=geojson&annotations=duration&steps=false",
+    "points": 3220,
+    "distance_km": 277.67,
+    "estimated_minutes": 216.6,
+    "snapped_start_lon_lat": [
+      127.384504,
+      36.350882
+    ],
+    "snapped_end_lon_lat": [
+      128.875493,
+      37.751989
+    ],
+    "generated_at": "2026-11-10T00:23:57+00:00"
+  }
+]

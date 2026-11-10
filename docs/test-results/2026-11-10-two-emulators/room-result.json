@@ -1,0 +1,68 @@
+{
+  "code": "04FBF8C2",
+  "destination": {
+    "name": "Daejeon City Hall",
+    "latitude": 36.3504,
+    "longitude": 127.3845,
+    "poi_id": "",
+    "address": "",
+    "source": "manual"
+  },
+  "members": {
+    "09a0de3f4413": {
+      "id": "09a0de3f4413",
+      "name": "Emulator A",
+      "location": {
+        "latitude": 37.5665,
+        "longitude": 126.978,
+        "measured_at": 1794269300.122,
+        "source": "demo"
+      },
+      "last_seen": 1794269348.7581558
+    },
+    "c391132c7106": {
+      "id": "c391132c7106",
+      "name": "Emulator B",
+      "location": {
+        "latitude": 35.1796,
+        "longitude": 129.0756,
+        "measured_at": 1794269300.813,
+        "source": "demo"
+      },
+      "last_seen": 1794269347.4030313
+    }
+  },
+  "proposal": {
+    "id": "6dd7c4fc21fef5c4",
+    "place": {
+      "name": "휴게소 테스트 1",
+      "latitude": 36.38305,
+      "longitude": 128.0268,
+      "poi_id": "",
+      "address": "",
+      "source": "demo"
+    },
+    "created_at": 1794269297.900655,
+    "proposer_id": "09a0de3f4413",
+    "status": "completed",
+    "votes": {
+      "09a0de3f4413": true,
+      "c391132c7106": true
+    },
+    "applications": {
+      "09a0de3f4413": {
+        "state": "unconfirmed",
+        "detail": "내비 응답을 확인하지 못했습니다. 실제 내비 화면을 확인하세요.",
+        "updated_at": 1794269348.3551667,
+        "attempt_id": "63341624821f1f4d"
+      },
+      "c391132c7106": {
+        "state": "unconfirmed",
+        "detail": "내비 응답을 확인하지 못했습니다. 실제 내비 화면을 확인하세요.",
+        "updated_at": 1794269347.0747924,
+        "attempt_id": "34d4fa02ec4ed3b2"
+      }
+    }
+  },
+  "revision": 241
+}

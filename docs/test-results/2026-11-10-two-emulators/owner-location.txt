@@ -1,0 +1,262 @@
+﻿Location Manager State:
+  User Info:
+    running users: u[0, 10]
+    current users: u[10]
+  Location Settings:
+    Location Setting: 
+      [u0] false
+      [u10] true
+    Location Allow/Deny Packages:
+    Throttling Allow Packages:
+      ai.pleos.playground.service.location.fused
+    ADAS Location Setting: 
+      [u0] false
+      [u10] false
+  Location Providers:
+    passive provider:
+      service: registered
+      listeners:
+        1010126/ai.umos.maps.android.navigation.app/345F2B57 Request[PASSIVE, minUpdateInterval=+1s0ms, minUpdateDistance=1.0, WorkSource{1010126 ai.umos.maps.android.navigation.app}]
+        1000/android[SensorNotificationService]/2987B9AE Request[PASSIVE, minUpdateInterval=+30m0s0ms, minUpdateDistance=100000.0, WorkSource{1000 android}]
+        1010070/com.android.timezone.location.provider[OfflineLocationTimeZoneProviderService]/394CFBAC {bg} Request[@+30m0s0ms BALANCED, minUpdateInterval=+4m59s996ms, WorkSource{1010070 com.android.timezone.location.provider}]
+      user 0:
+        last location=null
+        enabled=false
+      user 10:
+        last location=Location[gps 37.566498,126.977998 hAcc=5.0 et=+12m43s61ms alt=0.0 vAcc=0.5 vel=0.0 sAcc=0.5 bear=0.0 bAcc=30.0 {Bundle[{satellites=0, maxCn0=0, meanCn0=0}]}]
+        enabled=true
+      allowed=true
+      identity=1000/android[LocationService]
+      properties=ProviderProperties[powerUsage=Low, accuracy=Fine]
+    fused provider:
+      service: ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+      listeners:
+        1010118/ai.pleos.playground.service.location.fused/4508F4B0 {bg} Request[@+1s0ms BALANCED, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+      user 0:
+        last location=null
+        enabled=false
+      user 10:
+        last location=Location[gps 37.566498,126.977998 hAcc=5.0 et=+12m43s61ms alt=0.0 vAcc=0.5 vel=0.0 sAcc=0.5 bear=0.0 bAcc=30.0 {Bundle[{satellites=0, maxCn0=0, meanCn0=0}]}]
+        enabled=true
+      allowed=true
+      identity=1000/com.android.location.fused
+      properties=ProviderProperties[powerUsage=Low, accuracy=Fine, supports=[bearing,speed,altitude]]
+      stationary throttled=false (not idle) (not stationary)
+      target service=1000/com.android.location.fused/.FusedLocationService@0
+      connected=true
+    gps provider:
+      service: ProviderRequest[@+1s0ms, HIGH_ACCURACY, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+      listeners:
+        1000/com.android.location.fused/FD9FC73C Request[@+1s0ms BALANCED, hiddenFromAppOps, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+        1010126/ai.umos.maps.android.navigation.app/0D86A461 Request[@+10s0ms HIGH_ACCURACY, minUpdateDistance=10.0, WorkSource{1010126 ai.umos.maps.android.navigation.app}]
+      user 0:
+        last location=null
+        enabled=false
+      user 10:
+        last location=Location[gps 37.566498,126.977998 hAcc=5.0 et=+12m43s61ms alt=0.0 vAcc=0.5 vel=0.0 sAcc=0.5 bear=0.0 bAcc=30.0 {Bundle[{satellites=0, maxCn0=0, meanCn0=0}]}]
+        enabled=true
+      allowed=true
+      identity=1000/android[GnssService]
+      properties=ProviderProperties[powerUsage=High, accuracy=Fine, requires=satellite, supports=[bearing,speed,altitude]]
+      stationary throttled=false (not idle) (not stationary)
+      mStarted=true   (changed +12m4s98ms ago)
+      mBatchingEnabled=true
+      mBatchingStarted=false
+      mBatchSize=4
+      mFixInterval=1000
+      GNSS_KPI_START
+        KPI logging start time: +14s804ms
+        KPI logging end time: +12m43s112ms
+        Number of location reports: 625
+        Percentage location failure: 13.120000000000001
+        Number of TTFF reports: 2
+        TTFF mean (sec): 3.8975
+        TTFF standard deviation (sec): 0.11650000000000456
+        Number of position accuracy reports: 543
+        Position accuracy mean (m): 5.0
+        Position accuracy standard deviation (m): 0.0
+        Number of CN0 reports: 594
+        Top 4 Avg CN0 mean (dB-Hz): 30.0
+        Top 4 Avg CN0 standard deviation (dB-Hz): 0.0
+        Total number of sv status messages processed: 3564
+        Total number of L5 sv status messages processed: 0
+        Total number of sv status messages processed, where sv is used in fix: 0
+        Total number of L5 sv status messages processed, where sv is used in fix: 0
+        Number of L5 CN0 reports: 0
+        Used-in-fix constellation types: 
+      GNSS_KPI_END
+      Power Metrics
+        Time on battery (min): 0.0
+        Amount of time (while on battery) Top 4 Avg CN0 > 20.0 dB-Hz (min): 0.0
+        Amount of time (while on battery) Top 4 Avg CN0 <= 20.0 dB-Hz (min): 0.0
+        Energy consumed while on battery (mAh): 0.0
+      Hardware Version: 
+  Historical Aggregate Location Provider Data:
+    passive:
+      1010070/com.android.timezone.location.provider[OfflineLocationTimeZoneProviderService]: min/max interval = 299s/299s, total/active/foreground duration = +12m11s84ms/+12m11s84ms/0, locations = 3
+      1000/android[SensorNotificationService]: min/max interval = passive/passive, total/active/foreground duration = +12m17s993ms/+12m17s993ms/+12m17s993ms, locations = 1
+      1010126/ai.umos.maps.android.navigation.app: min/max interval = passive/passive, total/active/foreground duration = +12m1s357ms/+10m11s865ms/+9m50s253ms, locations = 2
+    gps:
+      1000/com.android.location.fused: min/max interval = 1s/1800s, total/active/foreground duration = +12m7s930ms/+12m7s929ms/+12m7s930ms, locations = 543
+      1000/android[GnssTimeUpdateService]: min/max interval = passive/passive, total/active/foreground duration = +17s222ms/+16s908ms/+17s221ms, locations = 1
+      1010126/ai.umos.maps.android.navigation.app: min/max interval = 10s/10s, total/active/foreground duration = +12m2s816ms/+10m13s321ms/+9m51s717ms, locations = 2
+    fused:
+      1010070/com.android.timezone.location.provider[OfflineLocationTimeZoneProviderService]: min/max interval = 0s/0s, total/active/foreground duration = +3s815ms/+3s804ms/0, locations = 1
+      1010126/ai.umos.maps.android.navigation.app: min/max interval = 1s/1s, total/active/foreground duration = +11ms/+11ms/+11ms, locations = 0
+      1010118/ai.pleos.playground.service.location.fused: min/max interval = 1s/1s, total/active/foreground duration = +12m4s104ms/+12m4s103ms/0, locations = 542
+  GNSS Manager:
+    Capabilities: [SCHEDULING TOTAL_POWER SINGLEBAND_TRACKING_POWER MULTIBAND_TRACKING_POWER SINGLEBAND_ACQUISITION_POWER MULTIBAND_ACQUISITION_POWER OTHER_MODES_POWER]
+    GNSS Hardware Model Name: Android Studio Emulator GPS
+    Status Provider:
+      service: registered
+      listeners:
+        1010126/ai.umos.maps.android.navigation.app/D2B62350
+    Measurements Provider:
+      service: unregistered
+    Navigation Message Provider:
+      service: unregistered
+    Antenna Info Provider:
+      Antenna Infos: null
+      service: unregistered
+  Geofence Manager:
+    service: unregistered
+  Event Log:
+    11-09 15:56:33.822: gps provider +registration 1000/android[GnssTimeUpdateService]/D6EB0B16 -> Request[PASSIVE, minUpdateInterval=0, WorkSource{1000 android}]
+    11-09 15:56:34.136: gps provider [u10] enabled
+    11-09 15:56:34.405: passive provider [u10] enabled
+    11-09 15:56:34.405: gps provider [u10] enabled
+    11-09 15:56:34.606: [u0] invisible
+    11-09 15:56:34.607: [u10] visible
+    11-09 15:56:34.772: fused provider [u10] enabled
+    11-09 15:56:35.000: current user switched from u0 to u10
+    11-09 15:56:44.120: passive provider +registration 1000/android[SensorNotificationService]/2987B9AE -> Request[PASSIVE, minUpdateInterval=+30m0s0ms, minUpdateDistance=100000.0, WorkSource{1000 android}]
+    11-09 15:56:44.122: passive provider request = ProviderRequest[@0]
+    11-09 15:56:47.213: fused provider +registration 1010070/com.android.timezone.location.provider[OfflineLocationTimeZoneProviderService]/303FCC2D -> Request[@0 HIGH_ACCURACY, duration=+5s0ms, WorkSource{1010070 com.android.timezone.location.provider}]
+    11-09 15:56:47.215: fused provider request = ProviderRequest[@+30m0s0ms, HIGH_ACCURACY, WorkSource{1010070 com.android.timezone.location.provider}]
+    11-09 15:56:47.222: gps provider +registration 1000/com.android.location.fused/FD9FC73C -> Request[@+30m0s0ms HIGH_ACCURACY, hiddenFromAppOps, WorkSource{1010070 com.android.timezone.location.provider}]
+    11-09 15:56:47.222: gps provider request = ProviderRequest[@+30m0s0ms, HIGH_ACCURACY, WorkSource{1010070 com.android.timezone.location.provider}]
+    11-09 15:56:51.019: fused provider request = ProviderRequest[OFF]
+    11-09 15:56:51.028: fused provider -registration 1010070/com.android.timezone.location.provider[OfflineLocationTimeZoneProviderService]/303FCC2D
+    11-09 15:56:51.029: passive provider +registration 1010070/com.android.timezone.location.provider[OfflineLocationTimeZoneProviderService]/394CFBAC -> Request[@+4m59s996ms BALANCED, WorkSource{1010070 com.android.timezone.location.provider}]
+    11-09 15:56:51.044: gps provider -registration 1000/android[GnssTimeUpdateService]/D6EB0B16
+    11-09 15:56:51.050: gps provider -registration 1000/com.android.location.fused/FD9FC73C
+    11-09 15:56:51.050: gps provider request = ProviderRequest[OFF]
+    11-09 15:56:58.009: fused provider +registration 1010118/ai.pleos.playground.service.location.fused/4508F4B0 -> Request[@+1s0ms BALANCED, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 15:56:58.010: fused provider request = ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 15:56:58.011: gps provider +registration 1000/com.android.location.fused/FD9FC73C -> Request[@+1s0ms BALANCED, hiddenFromAppOps, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 15:56:58.013: gps provider request = ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 15:56:59.297: gps provider +registration 1010126/ai.umos.maps.android.navigation.app/0D86A461 -> Request[@+10s0ms HIGH_ACCURACY, minUpdateDistance=10.0, WorkSource{1010126 ai.umos.maps.android.navigation.app}]
+    11-09 15:56:59.300: gps provider request = ProviderRequest[@+1s0ms, HIGH_ACCURACY, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 15:57:00.756: passive provider +registration 1010126/ai.umos.maps.android.navigation.app/345F2B57 -> Request[PASSIVE, minUpdateInterval=+1s0ms, minUpdateDistance=1.0, WorkSource{1010126 ai.umos.maps.android.navigation.app}]
+    11-09 15:57:01.550: fused provider +registration 1010126/ai.umos.maps.android.navigation.app/F8CE7AC7 -> Request[@+1s0ms HIGH_ACCURACY, minUpdateDistance=0.1, WorkSource{1010126 ai.umos.maps.android.navigation.app}]
+    11-09 15:57:01.550: fused provider request = ProviderRequest[@+1s0ms, HIGH_ACCURACY, WorkSource{1010118 ai.pleos.playground.service.location.fused, 1010126 ai.umos.maps.android.navigation.app}]
+    11-09 15:57:01.561: fused provider -registration 1010126/ai.umos.maps.android.navigation.app/F8CE7AC7
+    11-09 15:57:01.561: fused provider request = ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 15:59:49.885: gps provider request = ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 15:59:56.678: gps provider request = ProviderRequest[@+1s0ms, HIGH_ACCURACY, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 16:03:24.462: gps provider request = ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 16:04:56.973: gps provider request = ProviderRequest[@+1s0ms, HIGH_ACCURACY, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 16:06:12.192: gps provider request = ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 16:06:17.502: gps provider request = ProviderRequest[@+1s0ms, HIGH_ACCURACY, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 16:08:16.628: gps provider request = ProviderRequest[@+1s0ms, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 16:08:21.508: gps provider request = ProviderRequest[@+1s0ms, HIGH_ACCURACY, WorkSource{1010118 ai.pleos.playground.service.location.fused}]
+    11-09 16:08:26.019: gps provider received location[1]
+    11-09 16:08:26.020: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:26.020: fused provider received location[1]
+    11-09 16:08:26.020: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:28.011: gps provider received location[1]
+    11-09 16:08:28.012: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:28.012: fused provider received location[1]
+    11-09 16:08:28.013: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:30.016: gps provider received location[1]
+    11-09 16:08:30.017: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:30.023: fused provider received location[1]
+    11-09 16:08:30.025: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:31.019: gps provider received location[1]
+    11-09 16:08:31.020: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:31.020: fused provider received location[1]
+    11-09 16:08:31.021: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:33.015: gps provider received location[1]
+    11-09 16:08:33.016: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:33.016: fused provider received location[1]
+    11-09 16:08:33.017: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:34.021: gps provider received location[1]
+    11-09 16:08:34.023: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:34.024: fused provider received location[1]
+    11-09 16:08:34.024: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:36.011: gps provider received location[1]
+    11-09 16:08:36.012: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:36.016: fused provider received location[1]
+    11-09 16:08:36.017: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:38.017: gps provider received location[1]
+    11-09 16:08:38.018: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:38.018: fused provider received location[1]
+    11-09 16:08:38.020: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:40.012: gps provider received location[1]
+    11-09 16:08:40.012: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:40.012: fused provider received location[1]
+    11-09 16:08:40.013: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:41.013: gps provider received location[1]
+    11-09 16:08:41.014: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:41.014: fused provider received location[1]
+    11-09 16:08:41.014: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:42.017: gps provider received location[1]
+    11-09 16:08:42.018: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:42.018: fused provider received location[1]
+    11-09 16:08:42.023: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:44.023: gps provider received location[1]
+    11-09 16:08:44.023: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:44.024: fused provider received location[1]
+    11-09 16:08:44.025: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:46.018: gps provider received location[1]
+    11-09 16:08:46.018: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:46.018: fused provider received location[1]
+    11-09 16:08:46.018: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:47.018: gps provider received location[1]
+    11-09 16:08:47.018: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:47.018: fused provider received location[1]
+    11-09 16:08:47.019: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:48.027: gps provider received location[1]
+    11-09 16:08:48.029: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:48.029: fused provider received location[1]
+    11-09 16:08:48.031: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:49.024: gps provider received location[1]
+    11-09 16:08:49.024: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:49.024: fused provider received location[1]
+    11-09 16:08:49.025: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:51.023: gps provider received location[1]
+    11-09 16:08:51.025: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:51.025: fused provider received location[1]
+    11-09 16:08:51.026: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:52.027: gps provider received location[1]
+    11-09 16:08:52.028: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:52.029: fused provider received location[1]
+    11-09 16:08:52.029: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:54.028: gps provider received location[1]
+    11-09 16:08:54.030: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:54.030: fused provider received location[1]
+    11-09 16:08:54.031: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:56.031: gps provider received location[1]
+    11-09 16:08:56.034: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:56.034: fused provider received location[1]
+    11-09 16:08:56.035: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:58.030: gps provider received location[1]
+    11-09 16:08:58.031: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:58.031: fused provider received location[1]
+    11-09 16:08:58.034: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:08:59.033: gps provider received location[1]
+    11-09 16:08:59.033: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:08:59.033: fused provider received location[1]
+    11-09 16:08:59.035: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:09:00.030: gps provider received location[1]
+    11-09 16:09:00.032: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:09:00.032: fused provider received location[1]
+    11-09 16:09:00.032: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:09:01.031: gps provider received location[1]
+    11-09 16:09:01.031: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:09:01.031: fused provider received location[1]
+    11-09 16:09:01.032: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0
+    11-09 16:09:02.062: gps provider received location[1]
+    11-09 16:09:02.063: gps provider delivered location[1] to 1000/com.android.location.fused/FD9FC73C
+    11-09 16:09:02.063: fused provider received location[1]
+    11-09 16:09:02.063: fused provider delivered location[1] to 1010118/ai.pleos.playground.service.location.fused/4508F4B0

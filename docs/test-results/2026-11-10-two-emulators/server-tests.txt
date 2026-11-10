@@ -1,0 +1,67 @@
+﻿python.exe : test_all_approve_then_independent_route_receipts (test_convoy.ConvoyTest.test_all_approve_then_independent
+_route_receipts) ... ok
+위치 줄:2 문자:463
++ ... oding UTF8; & "$env:LOCALAPPDATA/Programs/Python/Python313/python.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_all_approv...eceipts) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_locations_expire_and_candidates_are_ranked (test_convoy.ConvoyTest.test_locations_expire_and_candidates_are_ranked
+) ... ok
+test_membership_change_does_not_silently_bypass_votes (test_convoy.ConvoyTest.test_membership_change_does_not_silently_
+bypass_votes) ... ok
+test_only_authenticated_members_can_see_locations (test_convoy.ConvoyTest.test_only_authenticated_members_can_see_locat
+ions) ... ok
+test_osm_parser_does_not_invent_poi_ids (test_convoy.ConvoyTest.test_osm_parser_does_not_invent_poi_ids) ... ok
+test_rejection_and_old_proposal_cannot_apply (test_convoy.ConvoyTest.test_rejection_and_old_proposal_cannot_apply) ... 
+ok
+test_timed_out_route_is_unconfirmed_not_success (test_convoy.ConvoyTest.test_timed_out_route_is_unconfirmed_not_success
+) ... ok
+test_two_clients_and_bad_json_over_real_http (test_convoy.HttpTest.test_two_clients_and_bad_json_over_real_http) ... 12
+7.0.0.1 - - [10/Nov/2026 09:09:06] "POST /rooms HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 09:09:06] "POST /rooms/6CA33CE5/join HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 09:09:06] "POST /rooms HTTP/1.1" 400 -
+ok
+test_approved_proposal_blocks_membership_changes (test_convoy_extra.BoundaryTest.test_approved_proposal_blocks_membersh
+ip_changes) ... ok
+test_concurrent_proposals_allow_exactly_one_winner (test_convoy_extra.BoundaryTest.test_concurrent_proposals_allow_exac
+tly_one_winner) ... ok
+test_cross_room_token_and_departed_token_are_rejected (test_convoy_extra.BoundaryTest.test_cross_room_token_and_departe
+d_token_are_rejected) ... ok
+test_delayed_location_does_not_replace_newer_measurement (test_convoy_extra.BoundaryTest.test_delayed_location_does_not
+_replace_newer_measurement) ... FAIL
+test_eight_vehicle_limit_is_atomic_under_concurrent_joins (test_convoy_extra.BoundaryTest.test_eight_vehicle_limit_is_a
+tomic_under_concurrent_joins) ... ok
+test_future_and_stale_locations_are_rejected (test_convoy_extra.BoundaryTest.test_future_and_stale_locations_are_reject
+ed) ... ok
+test_only_proposer_can_cancel_and_cancelled_cannot_apply (test_convoy_extra.BoundaryTest.test_only_proposer_can_cancel_
+and_cancelled_cannot_apply) ... ok
+test_overpass_incomplete_response_is_not_reported_as_empty_success (test_convoy_extra.BoundaryTest.test_overpass_incomp
+lete_response_is_not_reported_as_empty_success) ... ok
+test_real_search_rate_limit_is_global_but_demo_is_available (test_convoy_extra.BoundaryTest.test_real_search_rate_limit
+_is_global_but_demo_is_available) ... ok
+test_retry_rotates_attempt_and_rejects_previous_receipt (test_convoy_extra.BoundaryTest.test_retry_rotates_attempt_and_
+rejects_previous_receipt) ... ok
+test_room_expiry_and_last_member_cleanup (test_convoy_extra.BoundaryTest.test_room_expiry_and_last_member_cleanup) ... 
+ok
+test_three_vehicles_require_every_vote_and_boolean_input (test_convoy_extra.BoundaryTest.test_three_vehicles_require_ev
+ery_vote_and_boolean_input) ... ok
+
+======================================================================
+FAIL: test_delayed_location_does_not_replace_newer_measurement (test_convoy_extra.BoundaryTest.test_delayed_location_do
+es_not_replace_newer_measurement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\pky57\IdeaProjects\PleosProjectv01\server\test_convoy_extra.py", line 117, in test_delayed_location_do
+es_not_replace_newer_measurement
+    self.assertEqual(room["members"][self.owner["member_id"]]["location"]["measured_at"], now,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "Delayed packets must not move the shared location backwards in time")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1794269337.0727067 != 1794269347.0727067 : Delayed packets must not move the shared location backwards 
+in time
+
+----------------------------------------------------------------------
+Ran 20 tests in 2.088s
+
+FAILED (failures=1)
