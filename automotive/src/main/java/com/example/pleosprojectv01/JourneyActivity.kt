@@ -61,7 +61,8 @@ class JourneyActivity : Activity() {
         }
         setContentView(web)
         fun enc(s: String) = URLEncoder.encode(s, "UTF-8")
-        web.loadUrl("$server/journey#code=${enc(session.code)}&member=${enc(session.memberId)}&token=${enc(session.token)}")
+        val autoRefresh = BuildConfig.DEBUG && intent.getBooleanExtra("auto_refresh_plan", false)
+        web.loadUrl("$server/journey#code=${enc(session.code)}&member=${enc(session.memberId)}&token=${enc(session.token)}&auto_refresh=$autoRefresh")
     }
     override fun onStart() {
         super.onStart()

@@ -1,4 +1,7 @@
 const assert=require('node:assert/strict'),D=require('./driving.js');
+const vehicles={first:{role:'driver'},second:{role:'driver'},passenger:{role:'passenger'}};
+assert.deepEqual(D.vehicleOrder(vehicles,'first'),['first','second']);
+assert.deepEqual(D.vehicleOrder(vehicles,'second'),['second','first']);
 const route={segments:[[[127,36],[127.001,36]],[[127.001,36],[127.001,36.001]]],seconds:100,
  turns:[{point:[127.001,36],description:'좌회전'},{point:[127.001,36.001],description:'목적지 도착'}]};
 const model=D.build(route),loc=(longitude,latitude,time)=>({longitude,latitude,measured_at:time});
