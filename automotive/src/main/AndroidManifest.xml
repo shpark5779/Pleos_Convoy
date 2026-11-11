@@ -25,6 +25,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.PleosProjectV01">
         <activity android:name=".JourneyActivity" android:exported="false" />
+        <activity android:name=".GpsShareActivity" android:exported="false" />
         <activity android:name=".NativeTmapActivity" android:exported="false"
             android:theme="@style/Theme.NativeTmap" />
         <activity

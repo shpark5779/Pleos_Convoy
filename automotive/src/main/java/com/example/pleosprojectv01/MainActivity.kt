@@ -170,6 +170,9 @@ class MainActivity : Activity() {
         button(sdkCard, "정식 TMAP 내비 SDK") {
             startActivity(Intent(this, NativeTmapActivity::class.java))
         }
+        button(sdkCard, "GPS만 공유 · 내비 미사용") {
+            startActivity(Intent(this, GpsShareActivity::class.java))
+        }
         button(sdkCard, "TMAP 동행 지도 · ETA · 합류 후보") { openJourney() }
         sdkCard.addView(label("지도에서 카페·휴게소·충전소 후보, 우회·대기 시간, 선두 차량 계획과 약속 시각을 확인하세요. 전원 승인 후 각자 앱 경로에 반영합니다. 회전별 음성 길안내와 차량 기본 내비 변경은 제공하지 않습니다.", 15f))
     }

@@ -1,6 +1,10 @@
 package com.example.pleosprojectv01
 
 import android.Manifest
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
@@ -13,6 +17,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.skt.tmap.engine.navigation.route.RoutePlanType
 import com.skt.tmap.engine.navigation.SDKManager
+import com.skt.tmap.vsm.data.VSMMapPoint
+import com.skt.tmap.vsm.map.marker.MarkerImage
+import com.skt.tmap.vsm.map.marker.VSMMarkerPoint
 import com.skt.tmap.engine.navigation.network.ndds.NddsDataType.DestSearchFlag
 import com.skt.tmap.engine.navigation.network.ndds.CarOilType
 import com.skt.tmap.engine.navigation.network.ndds.TollCarType
@@ -47,6 +54,33 @@ class NativeTmapActivity : AppCompatActivity() {
     private var activeSession: ConvoySession? = null
     private var finalDestination = ""
     private var lastTelemetry = 0L
+    private lateinit var planControls: ConvoyPlanControls
+    private var routeEnabled=false
+    private var attemptedPlanVersion=-1
+    private var requestedPlanVersion=-1
+    private lateinit var companionsStatus: TextView
+    private var visible = false
+    private var pollingCompanions = false
+    private val companionMarkerIds = mutableSetOf<String>()
+    private val companionIcon by lazy {
+        val bitmap = Bitmap.createBitmap(96,96,Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.rgb(132,45,196) }
+        canvas.drawCircle(48f,48f,45f,paint)
+        paint.color = Color.WHITE
+        canvas.drawRoundRect(27f,20f,69f,76f,10f,10f,paint)
+        paint.color = Color.rgb(132,45,196)
+        canvas.drawRect(33f,31f,63f,46f,paint)
+        canvas.drawRect(33f,59f,63f,66f,paint)
+        MarkerImage.fromBitmap(bitmap)
+    }
+    private val companionTick = object : Runnable {
+        override fun run() {
+            if (!visible) return
+            pollCompanions()
+            main.postDelayed(this,3000)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +88,9 @@ class NativeTmapActivity : AppCompatActivity() {
         val column = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         status = TextView(this).apply { textSize = 18f; setPadding(20, 10, 20, 10) }
         column.addView(status)
+        companionsStatus = TextView(this).apply { text = "동행 차량 위치 수신 대기 · 보라색 자동차"; textSize = 17f }
+        column.addView(companionsStatus)
+        planControls=ConvoyPlanControls(this);column.addView(planControls)
         val controls = LinearLayout(this)
         fun control(text: String, action: () -> Unit) {
             controls.addView(Button(this).apply { this.text=text; isAllCaps=false; minHeight=64
@@ -77,11 +114,13 @@ class NativeTmapActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        visible=true; main.post(companionTick)
         if(checkSelfPermission("pleos.car.permission.FUSED_LOCATION")==PackageManager.PERMISSION_GRANTED) location.start()
     }
-    override fun onStop() { location.stop(); super.onStop() }
+    override fun onStop() { visible=false; main.removeCallbacks(companionTick); clearCompanions(); location.stop(); currentLocation=null; super.onStop() }
     override fun onDestroy() {
         location.stop()
+        planControls.close()
         runCatching { navigation?.stopDrive(); if(authorized) TmapUISDK.finish() }
         io.shutdown(); super.onDestroy()
     }
@@ -114,6 +153,54 @@ class NativeTmapActivity : AppCompatActivity() {
     }
     private fun installationId():String = prefs.getString("tmap_device_id",null) ?: UUID.randomUUID().toString().also {
         prefs.edit().putString("tmap_device_id",it).apply()
+    }
+
+    private fun clearCompanions() {
+        val manager=navigation?.getMapView()?.markerManager
+        companionMarkerIds.forEach { manager?.removeMarker(it) }
+        companionMarkerIds.clear()
+    }
+
+    private fun pollCompanions() {
+        if (!authorized || pollingCompanions) return
+        val code=prefs.getString("code","").orEmpty()
+        if (code.isEmpty()) { companionsStatus.text="동행 차량을 보려면 모임에 참가하세요."; return }
+        val session=ConvoySession(prefs.getString("server","http://10.0.2.2:8765")!!,code,
+            prefs.getString("member_id","")!!,prefs.getString("token","")!!)
+        val own=if (simulationStarted) null else currentLocation?.takeIf {
+            System.currentTimeMillis()/1000.0-it.optDouble("measured_at") in -5.0..30.0
+        }?.let { JSONObject(it.toString()).put("source","sdk") }
+        pollingCompanions=true
+        io.execute {
+            val result=runCatching { if(own==null) ConvoyApi.room(session) else ConvoyApi.room(session,"location",own) }
+            main.post {
+                pollingCompanions=false
+                if (!visible) return@post
+                result.onSuccess { room ->
+                    planControls.update(room)
+                    if(routeEnabled && !requesting && room.optInt("plan_version")>attemptedPlanVersion) requestRoute(false)
+                    val manager=navigation?.getMapView()?.markerManager ?: return@onSuccess
+                    val vehicles=companionVehicles(room,session.memberId,System.currentTimeMillis()/1000.0)
+                    clearCompanions()
+                    vehicles.forEach { vehicle ->
+                        val id="convoy-${vehicle.id}"
+                        val marker=VSMMarkerPoint(id).apply {
+                            icon=companionIcon; text="동행 · ${vehicle.name}"
+                            position=VSMMapPoint(vehicle.longitude,vehicle.latitude)
+                        }
+                        manager.addMarker(marker); companionMarkerIds.add(id)
+                    }
+                    companionsStatus.text="동행 차량 ${vehicles.size}대 · 보라색 자동차 · 3초 간격 갱신"
+                    resultPrefs.edit().putInt("companion_count",vehicles.size)
+                        .putString("companion_positions",vehicles.joinToString { "${it.id}:${it.latitude},${it.longitude}" })
+                        .putLong("companions_updated_at",System.currentTimeMillis()).apply()
+                }.onFailure {
+                    clearCompanions()
+                    companionsStatus.text="동행 위치 수신 실패 · 서버 연결을 확인하세요."
+                    resultPrefs.edit().putInt("companion_count",0).apply()
+                }
+            }
+        }
     }
 
     private fun initializeSdk() {
@@ -170,7 +257,10 @@ class NativeTmapActivity : AppCompatActivity() {
         navigation!!.drivingStatusCallback=object:TmapUISDK.DrivingStatusCallback {
             override fun onStartNavigation() { phase(if(simulationStarted) "SIMULATION_RUNNING" else "NAVIGATION_RUNNING",if(simulationStarted) "정식 SDK 모의주행 중" else "정식 SDK 길안내 중") }
             override fun onStartNavigationInfo(totalDistanceInMeter:Int,totalTimeInSec:Int,tollFee:Int) {
-                resultPrefs.edit().putInt("distance_m",totalDistanceInMeter).putInt("duration_s",totalTimeInSec).apply()
+                requesting=false
+                resultPrefs.edit().putInt("distance_m",totalDistanceInMeter).putInt("duration_s",totalTimeInSec)
+                    .putInt("sdk_plan_version",requestedPlanVersion).apply()
+                phase(if(simulationStarted) "SIMULATION_RUNNING" else "NAVIGATION_RUNNING","정식 SDK 안내 중 · 반영 계획 v$requestedPlanVersion")
             }
             override fun onStopNavigation() { requesting=false
                 if(resultPrefs.getBoolean("arrived_final",false))phase("ARRIVED","정식 SDK 목적지 도착 완료")
@@ -230,6 +320,7 @@ class NativeTmapActivity : AppCompatActivity() {
     private fun requestRoute(simulation:Boolean) {
         if(!authorized) { phase("AUTH_REQUIRED","SDK 인증이 완료되어야 경로 요청·모의주행이 가능합니다.");return }
         if(requesting)return
+        routeEnabled=true
         val code=prefs.getString("code","").orEmpty()
         if(code.isEmpty()) { phase("ROOM_REQUIRED","먼저 동행 모임에 참가하세요.");return }
         val session=ConvoySession(prefs.getString("server","http://10.0.2.2:8765")!!,code,
@@ -255,6 +346,8 @@ class NativeTmapActivity : AppCompatActivity() {
                             .putBoolean("simulation",simulation).putInt("waypoint_count",pass.size).apply()
                         phase("ROUTE_REQUESTED",if(simulation) "정식 SDK 모의주행 경로 요청 중" else "정식 SDK 실제 안내 경로 요청 중")
                         finalDestination=room.getJSONObject("destination").getString("name")
+                        requestedPlanVersion=room.getInt("plan_version");attemptedPlanVersion=requestedPlanVersion
+                        resultPrefs.edit().putInt("sdk_requested_plan_version",requestedPlanVersion).apply()
                         navigation!!.carOption=CarOption().apply {
                             carType=TollCarType.Car;oilType=CarOilType.Gasoline;isHipassOn=true
                         }
@@ -264,6 +357,8 @@ class NativeTmapActivity : AppCompatActivity() {
                         navigation!!.requestRoute(waypoint(point!!),pass,waypoint(room.getJSONObject("destination")),!simulation,
                             object:TmapUISDK.RouteRequestListener {
                                 override fun onSuccess() {
+                                    requesting=false
+                                    resultPrefs.edit().putInt("sdk_plan_version",requestedPlanVersion).apply()
                                     phase("ROUTE_READY","정식 SDK 경로 계산 완료")
                                     if(simulation)main.post { startSdkSimulation() }
                                 }
@@ -276,4 +371,20 @@ class NativeTmapActivity : AppCompatActivity() {
             }
         }
     }
+}
+
+internal data class CompanionVehicle(val id:String,val name:String,val latitude:Double,val longitude:Double)
+
+/** Ignore own car, passengers, invalid coordinates and locations older than 30 seconds. */
+internal fun companionVehicles(room:JSONObject,ownId:String,now:Double):List<CompanionVehicle> {
+    val members=room.optJSONObject("members") ?: return emptyList()
+    return members.keys().asSequence().filter { it!=ownId }.mapNotNull { id ->
+        val member=members.optJSONObject(id) ?: return@mapNotNull null
+        if (member.optString("role","driver")!="driver") return@mapNotNull null
+        val point=member.optJSONObject("location") ?: return@mapNotNull null
+        val lat=point.optDouble("latitude"); val lon=point.optDouble("longitude")
+        val age=now-point.optDouble("measured_at")
+        if (lat !in -90.0..90.0 || lon !in -180.0..180.0 || age !in -5.0..30.0) return@mapNotNull null
+        CompanionVehicle(id,member.optString("name","동행 차량").take(30),lat,lon)
+    }.toList()
 }
