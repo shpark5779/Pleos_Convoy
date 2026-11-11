@@ -47,6 +47,19 @@ class NativeTmapActivity : AppCompatActivity() {
     private var activeSession: ConvoySession? = null
     private var finalDestination = ""
     private var lastTelemetry = 0L
+    private val externalGps by lazy { BuildConfig.DEBUG && intent.getBooleanExtra("external_gps_replay", false) }
+    private val followPlan by lazy { BuildConfig.DEBUG && intent.getBooleanExtra("follow_plan", false) }
+    private var resumed = false
+    private var pollingPlan = false
+    private var attemptedVersion = -1
+    private var quotaBlocked = false
+    private val planTick = object : Runnable {
+        override fun run() {
+            if (!resumed) return
+            pollPlan()
+            main.postDelayed(this, 3000)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,17 +84,24 @@ class NativeTmapActivity : AppCompatActivity() {
                 .put("measured_at",p.timestampMillis/1000.0) }
         }, { })
         phase("CONFIGURED", "정식 TMAP Navi SDK 1.78 · ClientID ${if(BuildConfig.TMAP_CLIENT_ID.isBlank()) "미설정" else "설정됨"}")
+        if (externalGps) phase("GPS_REPLAY", "1번 · TMAP 내비 / 에뮬레이터 가상 GPS · 승인된 경로 변경 자동 반영")
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED) initializeSdk()
         else requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION),18)
     }
 
     override fun onStart() {
         super.onStart()
+        resumed = true
+        if (followPlan) main.post(planTick)
         if(checkSelfPermission("pleos.car.permission.FUSED_LOCATION")==PackageManager.PERMISSION_GRANTED) location.start()
     }
-    override fun onStop() { location.stop(); super.onStop() }
+    override fun onStop() {
+        resumed = false; main.removeCallbacks(planTick)
+        location.stop(); super.onStop()
+    }
     override fun onDestroy() {
         location.stop()
+        main.removeCallbacks(planTick)
         runCatching { navigation?.stopDrive(); if(authorized) TmapUISDK.finish() }
         io.shutdown(); super.onDestroy()
     }
@@ -106,11 +126,42 @@ class NativeTmapActivity : AppCompatActivity() {
     }
     private fun routeFailed(code:Int,message:String?) {
         requesting=false
+        if (code == 429) quotaBlocked = true
         resultPrefs.edit().putInt("error_code",code).apply()
         val detail=if(code==429) {
             "TMAP 경로 요청 제한(429). SK Open API 대시보드에서 내비게이션 사용량·한도를 확인한 뒤 다시 시도해 주세요."
         } else "정식 SDK 경로 요청 실패 ($code): ${safe(message)}"
         phase("ROUTE_FAILED",detail)
+    }
+
+    private fun session(): ConvoySession? {
+        val code = prefs.getString("code", "").orEmpty()
+        if (code.isEmpty()) return null
+        return ConvoySession(prefs.getString("server", "http://10.0.2.2:8765")!!, code,
+            prefs.getString("member_id", "")!!, prefs.getString("token", "")!!)
+    }
+
+    private fun pollPlan() {
+        if (!authorized || quotaBlocked || requesting || pollingPlan) return
+        val session = session() ?: return
+        pollingPlan = true
+        io.execute {
+            val response = runCatching { ConvoyApi.room(session) }
+            main.post {
+                pollingPlan = false
+                if (!resumed || isDestroyed || quotaBlocked || requesting) return@post
+                response.onSuccess { room ->
+                    val point = room.getJSONObject("members").getJSONObject(session.memberId).optJSONObject("location")
+                    val version = room.getInt("plan_version")
+                    // Wait for a fresh fix; attempt each approved plan once, including on errors.
+                    if (version != attemptedVersion && point != null &&
+                        System.currentTimeMillis()/1000.0-point.optDouble("measured_at") in -5.0..30.0) {
+                        attemptedVersion = version
+                        requestRoute(false, room)
+                    }
+                }.onFailure { phase("PLAN_POLL_FAILED", safe(it.message)) }
+            }
+        }
     }
     private fun installationId():String = prefs.getString("tmap_device_id",null) ?: UUID.randomUUID().toString().also {
         prefs.edit().putString("tmap_device_id",it).apply()
@@ -140,6 +191,7 @@ class NativeTmapActivity : AppCompatActivity() {
                     }
                     override fun onFail(errorCode:Int,errorMsg:String?) {
                         initializing=false;authorized=false
+                        if (errorCode == 429) quotaBlocked = true
                         resultPrefs.edit().putInt("error_code",errorCode).apply()
                         phase("SDK_AUTH_FAILED","정식 SDK 초기화 실패 ($errorCode): ${safe(errorMsg)}\nClientID와 내비 SDK 이용 권한·한도를 확인하세요.")
                     }
@@ -185,6 +237,8 @@ class NativeTmapActivity : AppCompatActivity() {
                 phase(if(finished) "ARRIVED" else "WAYPOINT_ARRIVED", "정식 SDK 도착 이벤트: $destination")
             }
             override fun onLocationChanged() {
+                // The replay script owns convoy coordinates; do not overwrite them with a stale engine fix.
+                if (externalGps) return
                 val session=activeSession ?: return
                 val now=System.currentTimeMillis();if(now-lastTelemetry<2000)return;lastTelemetry=now
                 SDKManager.getInstance().requestCurrentLocation { p ->
@@ -227,7 +281,8 @@ class NativeTmapActivity : AppCompatActivity() {
         })
     }
 
-    private fun requestRoute(simulation:Boolean) {
+    private fun requestRoute(simulation:Boolean, plan:JSONObject? = null) {
+        if (quotaBlocked) { phase("QUOTA_BLOCKED", "TMAP 한도(429)로 자동 재요청을 중단했습니다. 한도 복구 후 화면을 다시 여세요."); return }
         if(!authorized) { phase("AUTH_REQUIRED","SDK 인증이 완료되어야 경로 요청·모의주행이 가능합니다.");return }
         if(requesting)return
         val code=prefs.getString("code","").orEmpty()
@@ -239,17 +294,18 @@ class NativeTmapActivity : AppCompatActivity() {
         resultPrefs.edit().putBoolean("arrived_final",false).putBoolean("via_passed",false).putInt("error_code",0).apply()
         phase("PLAN_LOADING","현재 승인된 동행 이동 계획 확인 중")
         io.execute {
-            val response=runCatching { ConvoyApi.room(session) }
+            val response=runCatching { plan ?: ConvoyApi.room(session) }
             main.post {
                 if(isDestroyed)return@post
                 response.onSuccess { room ->
                     runCatching {
                         val member=room.getJSONObject("members").getJSONObject(session.memberId)
                         check(member.optString("role","driver")=="driver") { "운전자만 경로를 요청할 수 있습니다." }
-                        val point=currentLocation ?: member.optJSONObject("location")
+                        val point=if(externalGps) member.optJSONObject("location") else currentLocation ?: member.optJSONObject("location")
                         check(point!=null && System.currentTimeMillis()/1000.0-point.getDouble("measured_at") in -5.0..30.0) { "최근 차량 위치가 필요합니다. 실제 위치 공유를 켜 주세요." }
                         fun waypoint(p:JSONObject)=WayPoint(p.optString("name","현재 위치"),MapPoint(p.getDouble("longitude"),p.getDouble("latitude")))
                         val vias=room.getJSONArray("waypoints")
+                        attemptedVersion = room.getInt("plan_version")
                         val pass=ArrayList<WayPoint>();for(i in 0 until vias.length())pass.add(waypoint(vias.getJSONObject(i)))
                         resultPrefs.edit().putInt("plan_version",room.getInt("plan_version"))
                             .putBoolean("simulation",simulation).putInt("waypoint_count",pass.size).apply()
@@ -264,6 +320,7 @@ class NativeTmapActivity : AppCompatActivity() {
                         navigation!!.requestRoute(waypoint(point!!),pass,waypoint(room.getJSONObject("destination")),!simulation,
                             object:TmapUISDK.RouteRequestListener {
                                 override fun onSuccess() {
+                                    requesting=false
                                     phase("ROUTE_READY","정식 SDK 경로 계산 완료")
                                     if(simulation)main.post { startSdkSimulation() }
                                 }

@@ -6,6 +6,9 @@
 - 서버: Python 표준 라이브러리만 사용. 프로젝트 루트에서 `python server/convoy_server.py` 실행.
 - 에뮬레이터 앱의 기본 서버 주소: `http://10.0.2.2:8765`.
 - 실행 방법, 구현 과정, 검증 결과와 제한: [구현 보고서](docs/IMPLEMENTATION_REPORT.md).
+- 1번 TMAP 내비 / 2번 지도, 가상 GPS와 중간 경유지 변경: [혼합 디바이스 시연](docs/MIXED_DEVICE_DEMO.md).
+- 두 기기 지도 전용, 출발 4조합과 경유지 합류·공동 출발: [실행 검증 기록](docs/MAP_ONLY_TEST.md).
+- 가상 GPS와 Virtual Console 기어·속도 동기화: [지도·계기판 통합 주행](docs/CONSOLE_GPS_TEST.md).
 
 TMAP 도로 경로·ETA·합류 후보와 공동 경유지 승인 기능을 추가했습니다. [REST 기반 동행 기능](docs/TMAP_IMPLEMENTATION.md), [두 에뮬레이터 시내 GPS 재생](docs/CITY_DRIVING_DEMO.md), [건양대병원·고려대 세종 → 울산 시연](docs/ULSAN_DEMO.md)을 확인할 수 있습니다.
 

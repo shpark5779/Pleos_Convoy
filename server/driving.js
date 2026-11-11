@@ -42,5 +42,9 @@
       if(t<1){if(remainingSegment===e.segment)remaining[remaining.length-1].push(e.b);else remaining.push([p,e.b]);remainingSegment=e.segment;}}
     return {passed,remaining};
   }
-  const api={distance,build,update,split};root.ConvoyDriving=api;if(typeof module!=='undefined')module.exports=api;
+  function vehicleOrder(members,myId){
+    return Object.keys(members).filter(id=>members[id].role!=='passenger')
+      .sort((a,b)=>Number(b===myId)-Number(a===myId));
+  }
+  const api={distance,build,update,split,vehicleOrder};root.ConvoyDriving=api;if(typeof module!=='undefined')module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

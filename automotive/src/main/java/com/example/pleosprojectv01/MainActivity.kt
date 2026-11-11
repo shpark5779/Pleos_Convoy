@@ -82,6 +82,13 @@ class MainActivity : Activity() {
         navigation = PleosNavigation(this) { /* Legacy SDK retained for the opt-in probe only. */ }
         showSession()
         handleGleo(intent)
+        // Explicit debug launcher only; a normal app launch keeps the existing home screen.
+        if (BuildConfig.DEBUG && session != null) when (intent.getStringExtra("demo_screen")) {
+            "native" -> startActivity(Intent(this, NativeTmapActivity::class.java)
+                .putExtra("external_gps_replay", true).putExtra("follow_plan", true))
+            "map" -> startActivity(Intent(this, JourneyActivity::class.java)
+                .putExtra("auto_refresh_plan", true))
+        }
     }
 
     private fun buildScreen() {

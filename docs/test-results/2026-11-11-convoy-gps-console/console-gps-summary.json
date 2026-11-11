@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "duration_seconds": 261.4,
+  "console_samples": 38,
+  "first_wait_seconds": 40.3,
+  "early_wait_speeds_kph": [
+    72,
+    0
+  ],
+  "joined_stops": 3,
+  "joint_departures": 3,
+  "restored": [
+    {
+      "device": "emulator-5554",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    },
+    {
+      "device": "emulator-5556",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    }
+  ],
+  "android_gps_error_m": [
+    0.11,
+    0.11
+  ],
+  "arrival_distance_m": [
+    4.16,
+    4.16
+  ],
+  "native_sdk_logs": {
+    "emulator-5554": 0,
+    "emulator-5556": 0
+  }
+}

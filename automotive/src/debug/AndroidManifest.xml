@@ -1,3 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application android:usesCleartextTraffic="true" />
+    <application android:usesCleartextTraffic="true">
+        <!-- Emulator GPS/Virtual Console validation only; omitted from release builds. -->
+        <activity android:name=".JourneyActivity">
+            <meta-data android:name="distractionOptimized" android:value="true" />
+        </activity>
+    </application>
 </manifest>
