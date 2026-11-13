@@ -14,6 +14,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from journey import Journey
 from tmap_service import TmapError
+from opinet_service import Opinet, OpinetError
 
 sys.modules.setdefault("convoy_server", sys.modules[__name__])
 
@@ -90,6 +91,7 @@ class Convoy:
         self.lock = threading.RLock()
         self.last_osm_search = 0.0
         self.journey = Journey(self)
+        self.opinet = Opinet()
 
     def member(self, room, token):
         require(token.isascii(), "잘못된 인증 토큰입니다.", 403)
@@ -128,6 +130,17 @@ class Convoy:
 
     def handle(self, method, path, body, token):
         parts = path.strip("/").split("/")
+        if method == "POST" and len(parts) == 3 and parts[0] == "rooms" and parts[2] == "fuel":
+            with self.lock:
+                room = self.rooms.get(parts[1].upper())
+                require(room is not None, "모임을 찾지 못했습니다.", 404)
+                member = self.member(room, token)
+                location = copy.deepcopy(member.get("location"))
+            if body.get("action") == "detail":
+                return self.opinet.detail(body.get("id"))
+            require(location is not None, "주유소를 찾으려면 차량 위치가 필요합니다.", 409)
+            require(time.time()-location['measured_at'] <= 120, "차량 위치가 오래됐습니다. GPS 위치를 갱신하세요.", 409)
+            return self.opinet.nearby(location['latitude'], location['longitude'], body.get('product', 'B027'))
         if method == "POST" and len(parts) == 3 and parts[0] == "rooms" and parts[2] == "journey":
             return self.journey.handle(parts[1], token, body)
         with self.lock:
@@ -318,7 +331,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(200, result)
         except ApiError as error:
             self.send_json(error.status, {"error": error.message})
-        except TmapError as error:
+        except (TmapError, OpinetError) as error:
             self.send_json(502, {"error": str(error)})
         except (ValueError, UnicodeError):
             self.send_json(400, {"error": "올바른 JSON 요청이 필요합니다."})

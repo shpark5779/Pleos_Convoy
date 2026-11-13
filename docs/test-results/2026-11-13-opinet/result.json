@@ -1,0 +1,22 @@
+{
+  "source": "한국석유공사 오피넷",
+  "nearby_products": [
+    "B027",
+    "D047"
+  ],
+  "radius_m": 5000,
+  "max_station_markers": 12,
+  "native_price_markers_verified": true,
+  "native_detail_list_verified": true,
+  "web_price_markers_verified": true,
+  "web_marker_touch_detail_verified": true,
+  "native_navigation_route_requests": 0,
+  "server_tests_passed": 46,
+  "app_tests_passed": 7,
+  "persistent_local_quota": {
+    "day": "2026-11-13",
+    "calls_reserved": 11,
+    "daily_cap": 280
+  },
+  "note": "Static SDK map and WebView verified; active-driving fuel overlay not re-tested due navigation quota."
+}

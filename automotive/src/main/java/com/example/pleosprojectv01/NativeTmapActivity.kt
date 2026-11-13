@@ -44,6 +44,7 @@ class NativeTmapActivity : AppCompatActivity() {
     private lateinit var status: TextView
     private lateinit var location: PleosLocation
     private var navigation: NavigationFragment? = null
+    private val fuel by lazy { NativeFuelLayer(this) { navigation?.getMapView() } }
     private var currentLocation: JSONObject? = null
     private var authorized = false
     private var initializing = false
@@ -103,6 +104,7 @@ class NativeTmapActivity : AppCompatActivity() {
         control("승인 계획 · 실제 안내") { requestRoute(false) }
         control("승인 계획 · SDK 모의주행") { requestRoute(true) }
         control("닫기") { finish() }
+        control("주유소 가격") { fuel.show() }
         column.addView(controls)
         column.addView(FrameLayout(this).apply { id=R.id.native_tmap_container }, LinearLayout.LayoutParams(-1,0,1f))
         setContentView(column)
@@ -126,6 +128,7 @@ class NativeTmapActivity : AppCompatActivity() {
     override fun onDestroy() {
         location.stop()
         planControls.close()
+        fuel.close()
         runCatching { navigation?.stopDrive(); if(authorized) TmapUISDK.finish() }
         io.shutdown(); super.onDestroy()
     }

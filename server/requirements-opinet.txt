@@ -1,0 +1,2 @@
+# Only required for Opinet KATEC/WGS84 coordinates.
+pyproj==3.8.0

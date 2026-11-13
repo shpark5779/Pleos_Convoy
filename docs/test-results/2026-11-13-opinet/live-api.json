@@ -1,0 +1,305 @@
+{
+  "B027": {
+    "stations": [
+      {
+        "id": "A0016558",
+        "name": "대양석유㈜ 내동주유소",
+        "longitude": 127.38100043831108,
+        "latitude": 36.32900116007786,
+        "price": 1798.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 2481.8,
+        "brand": "SKE"
+      },
+      {
+        "id": "A0016802",
+        "name": "(유)용명에너지 신대전셀프주유소",
+        "longitude": 127.38005284984051,
+        "latitude": 36.327350393326384,
+        "price": 1798.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 2677.1,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0016492",
+        "name": "대양석유㈜ 중리주유소",
+        "longitude": 127.43016625859556,
+        "latitude": 36.358659217501675,
+        "price": 1799.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 4053.8,
+        "brand": "SKE"
+      },
+      {
+        "id": "A0017446",
+        "name": "㈜태석",
+        "longitude": 127.42955324594428,
+        "latitude": 36.358640819750235,
+        "price": 1799.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 3999.6,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0033489",
+        "name": "우리하나셀프주유소",
+        "longitude": 127.3849222285313,
+        "latitude": 36.328057328676415,
+        "price": 1799.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 2547.5,
+        "brand": "SOL"
+      },
+      {
+        "id": "A0014127",
+        "name": "중도석유(주)오정동주유소",
+        "longitude": 127.41530196598724,
+        "latitude": 36.35619295338406,
+        "price": 1800.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 2691.7,
+        "brand": "GSC"
+      },
+      {
+        "id": "A0013949",
+        "name": "아원주유소",
+        "longitude": 127.43582818214068,
+        "latitude": 36.34144509243577,
+        "price": 1802.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 4596.4,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0013680",
+        "name": "KH에너지㈜직영 태양주유소",
+        "longitude": 127.43618887325154,
+        "latitude": 36.35552674065631,
+        "price": 1802.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 4531.9,
+        "brand": "SKE"
+      },
+      {
+        "id": "A0013991",
+        "name": "용전셀프주유소",
+        "longitude": 127.43096738624268,
+        "latitude": 36.34694434502051,
+        "price": 1802.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 4060.8,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0013597",
+        "name": "동일석유㈜대전주유소",
+        "longitude": 127.43257850346298,
+        "latitude": 36.350503009871765,
+        "price": 1802.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 4180.8,
+        "brand": "SKE"
+      },
+      {
+        "id": "A0013986",
+        "name": "㈜남강 중앙로셀프주유소",
+        "longitude": 127.41919136499486,
+        "latitude": 36.32394689567348,
+        "price": 1804.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 4229.4,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0013918",
+        "name": "(주)김여사네 대전지점",
+        "longitude": 127.42126808061519,
+        "latitude": 36.332712231509916,
+        "price": 1804.0,
+        "product": "B027",
+        "product_name": "휘발유",
+        "distance_m": 3759.7,
+        "brand": "SOL"
+      }
+    ],
+    "fetched_at": 1794568418.030466,
+    "radius_m": 5000,
+    "attribution": "한국석유공사 오피넷",
+    "notice": "조회 시점의 보고 가격 · 실제 판매가격/영업 여부는 주유소에서 확인하세요."
+  },
+  "D047": {
+    "stations": [
+      {
+        "id": "A0016802",
+        "name": "(유)용명에너지 신대전셀프주유소",
+        "longitude": 127.38005284984051,
+        "latitude": 36.327350393326384,
+        "price": 1788.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 2677.1,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0016558",
+        "name": "대양석유㈜ 내동주유소",
+        "longitude": 127.38100043831108,
+        "latitude": 36.32900116007786,
+        "price": 1788.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 2481.8,
+        "brand": "SKE"
+      },
+      {
+        "id": "A0016492",
+        "name": "대양석유㈜ 중리주유소",
+        "longitude": 127.43016625859556,
+        "latitude": 36.358659217501675,
+        "price": 1789.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 4053.8,
+        "brand": "SKE"
+      },
+      {
+        "id": "A0033489",
+        "name": "우리하나셀프주유소",
+        "longitude": 127.3849222285313,
+        "latitude": 36.328057328676415,
+        "price": 1789.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 2547.5,
+        "brand": "SOL"
+      },
+      {
+        "id": "A0017446",
+        "name": "㈜태석",
+        "longitude": 127.42955324594428,
+        "latitude": 36.358640819750235,
+        "price": 1789.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 3999.6,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0013991",
+        "name": "용전셀프주유소",
+        "longitude": 127.43096738624268,
+        "latitude": 36.34694434502051,
+        "price": 1791.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 4060.8,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0013949",
+        "name": "아원주유소",
+        "longitude": 127.43582818214068,
+        "latitude": 36.34144509243577,
+        "price": 1791.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 4596.4,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0013597",
+        "name": "동일석유㈜대전주유소",
+        "longitude": 127.43257850346298,
+        "latitude": 36.350503009871765,
+        "price": 1791.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 4180.8,
+        "brand": "SKE"
+      },
+      {
+        "id": "A0013988",
+        "name": "OK주유소",
+        "longitude": 127.42068993681578,
+        "latitude": 36.370830179855176,
+        "price": 1792.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 3811.6,
+        "brand": "HDO"
+      },
+      {
+        "id": "A0016604",
+        "name": "도마진실주유소",
+        "longitude": 127.3773747269728,
+        "latitude": 36.319576773020344,
+        "price": 1792.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 3570.9,
+        "brand": "SOL"
+      },
+      {
+        "id": "A0016789",
+        "name": "중도석유(주) 도마동주유소",
+        "longitude": 127.37433490600098,
+        "latitude": 36.31083655544379,
+        "price": 1793.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 4577.0,
+        "brand": "GSC"
+      },
+      {
+        "id": "A0016445",
+        "name": "남선석유㈜ 계백셀프주유소",
+        "longitude": 127.36958539130838,
+        "latitude": 36.309725493655904,
+        "price": 1794.0,
+        "product": "D047",
+        "product_name": "경유",
+        "distance_m": 4810.8,
+        "brand": "SOL"
+      }
+    ],
+    "fetched_at": 1794568604.07647,
+    "radius_m": 5000,
+    "attribution": "한국석유공사 오피넷",
+    "notice": "조회 시점의 보고 가격 · 실제 판매가격/영업 여부는 주유소에서 확인하세요."
+  },
+  "detail": {
+    "id": "A0016558",
+    "name": "대양석유㈜ 내동주유소",
+    "address": "대전 서구 동서대로 1081",
+    "prices": [
+      {
+        "product": "B027",
+        "product_name": "휘발유",
+        "price": 1798.0,
+        "date": "20261113",
+        "time": "175953"
+      },
+      {
+        "product": "D047",
+        "product_name": "경유",
+        "price": 1788.0,
+        "date": "20261113",
+        "time": "175759"
+      }
+    ],
+    "fetched_at": 1794568604.2696066,
+    "attribution": "한국석유공사 오피넷"
+  }
+}
