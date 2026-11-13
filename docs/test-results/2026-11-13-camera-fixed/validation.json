@@ -1,0 +1,154 @@
+{
+  "videos": [
+    {
+      "file": "build\\camera-fixed-20261113\\recordings\\A-long-driving.mp4",
+      "duration_s": 336.0450111111111,
+      "fps": 47.7941926496553,
+      "frames": 16061.0,
+      "decoded_frames": [
+        {
+          "seconds": 30,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\A-long-driving-frame-30s.png"
+        },
+        {
+          "seconds": 120,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\A-long-driving-frame-120s.png"
+        },
+        {
+          "seconds": 240,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\A-long-driving-frame-240s.png"
+        },
+        {
+          "seconds": 295,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\A-long-driving-frame-295s.png"
+        },
+        {
+          "seconds": 328,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\A-long-driving-frame-328s.png"
+        }
+      ]
+    },
+    {
+      "file": "build\\camera-fixed-20261113\\recordings\\B-long-driving.mp4",
+      "duration_s": 337.2511,
+      "fps": 37.58327252305478,
+      "frames": 12675.0,
+      "decoded_frames": [
+        {
+          "seconds": 30,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\B-long-driving-frame-30s.png"
+        },
+        {
+          "seconds": 120,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\B-long-driving-frame-120s.png"
+        },
+        {
+          "seconds": 240,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\B-long-driving-frame-240s.png"
+        },
+        {
+          "seconds": 295,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\B-long-driving-frame-295s.png"
+        },
+        {
+          "seconds": 328,
+          "file": "docs\\test-results\\2026-11-13-camera-fixed\\B-long-driving-frame-328s.png"
+        }
+      ]
+    }
+  ],
+  "speed_statistics": [
+    {
+      "vehicle": "A",
+      "sections": [
+        {
+          "limit_kph": 50,
+          "samples": 240,
+          "min_kph": 0.0,
+          "max_kph": 47.498633391502736
+        },
+        {
+          "limit_kph": 30,
+          "samples": 81,
+          "min_kph": 0.0,
+          "max_kph": 27.013214499984883
+        }
+      ]
+    },
+    {
+      "vehicle": "B",
+      "sections": [
+        {
+          "limit_kph": 50,
+          "samples": 256,
+          "min_kph": 0.0,
+          "max_kph": 42.99982270334538
+        },
+        {
+          "limit_kph": 30,
+          "samples": 65,
+          "min_kph": 0.0,
+          "max_kph": 24.77241381078038
+        }
+      ]
+    }
+  ],
+  "speeding_samples": 0,
+  "control_ticks": 321,
+  "ui_badges": [
+    {
+      "seconds": 0,
+      "badges": [
+        "SDK 도로 제한속도 미확인 · 현재 0 km/h"
+      ]
+    },
+    {
+      "seconds": 45,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 42 km/h"
+      ]
+    },
+    {
+      "seconds": 90,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 42 km/h"
+      ]
+    },
+    {
+      "seconds": 135,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 42 km/h"
+      ]
+    },
+    {
+      "seconds": 180,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 47 km/h"
+      ]
+    },
+    {
+      "seconds": 225,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 47 km/h"
+      ]
+    },
+    {
+      "seconds": 270,
+      "badges": [
+        "SDK 도로 제한속도 30 km/h · 현재 0 km/h"
+      ]
+    },
+    {
+      "seconds": 315,
+      "badges": [
+        "SDK 도로 제한속도 30 km/h · 현재 0 km/h"
+      ]
+    },
+    {
+      "seconds": 330,
+      "badges": [
+        "SDK 도로 제한속도 30 km/h · 현재 0 km/h"
+      ]
+    }
+  ]
+}

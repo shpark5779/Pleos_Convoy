@@ -1,0 +1,20 @@
+{
+  "phase": "NAVIGATION_RUNNING",
+  "sdk_requested_plan_version": "0",
+  "sdk_plan_version": "0",
+  "simulation": "false",
+  "companions_updated_at": "1794566475770",
+  "request_origin_latitude": "36.35088",
+  "duration_s": "407",
+  "arrived_final": "false",
+  "companion_positions": "646c677068a1:36.35195900221373,127.38674010284484",
+  "updated_at": "1794566475699",
+  "waypoint_count": "0",
+  "plan_version": "0",
+  "request_origin_longitude": "127.386734",
+  "via_passed": "false",
+  "error_code": "0",
+  "detail": "정식 SDK 안내 중 · 반영 계획 v0",
+  "distance_m": "2477",
+  "companion_count": "1"
+}

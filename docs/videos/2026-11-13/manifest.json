@@ -1,0 +1,14 @@
+[
+  {
+    "file": "docs/videos/2026-11-13/A-long-driving.mp4",
+    "source": "build/camera-fixed-20261113/recordings/A-long-driving.mp4",
+    "bytes": 104699524,
+    "sha256": "26475e6509dee4f102244b0a4735a898a9a7876503f80268c6723c0949b5cd92"
+  },
+  {
+    "file": "docs/videos/2026-11-13/B-long-driving.mp4",
+    "source": "build/camera-fixed-20261113/recordings/B-long-driving.mp4",
+    "bytes": 83349935,
+    "sha256": "2afba61fd3eb0fcb9488011c9f0333b00ae1b04721db44ae02b87411609f8708"
+  }
+]

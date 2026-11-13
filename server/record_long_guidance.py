@@ -18,6 +18,7 @@ from virtual_console import VirtualConsole
 OUT = ROOT/'build/active-guidance-drive-20261112/long-sign'
 EVIDENCE = ROOT/'docs/test-results/2026-11-12-active-guidance/long-sign'
 DURATION = 300
+SESSION = ROOT/'build/native-variable-20261112/overview/private-session.json'
 
 
 def capture(seconds):
@@ -35,7 +36,7 @@ def run():
     EVIDENCE.mkdir(parents=True, exist_ok=True)
     pid = adb(DEVICES[0], 'shell', 'pidof', PACKAGE).decode().strip()
     assert pid, 'Existing native guidance required'
-    sessions = json.loads((ROOT/'build/native-variable-20261112/overview/private-session.json').read_text('utf-8'))
+    sessions = json.loads(SESSION.read_text('utf-8'))
     route = json.loads((ROOT/'build/active-sdk-route.json').read_text('utf-8'))
     plan = RoadSpeedPlan(route)
     assert all(s['limit_kph'] is not None for s in plan.sections)
@@ -102,10 +103,11 @@ def run():
             adb(device, 'pull', remote, str(OUT/f'{label}-long-driving.mp4'))
     assert adb(DEVICES[0], 'shell', 'pidof', PACKAGE).decode().strip() == pid
     assert all(p-start > 1900 for p, start in zip(progress, initial))
-    assert all(any(t['limits_kph'][i] == 10 for t in ticks) for i in range(2))
+    expected_limits = {section['limit_kph'] for section in plan.sections}
+    assert all(expected_limits <= {t['limits_kph'][i] for t in ticks} for i in range(2))
     visible_limits = {int(re.search(r'(\d+) km/h', b).group(1))
                       for sample in samples for b in sample['badges'] if re.search(r'(\d+) km/h', b)}
-    assert {10, 50} <= visible_limits, visible_limits
+    assert expected_limits <= visible_limits, visible_limits
     assert sum(s['native'].get('companion_count') == '1' for s in samples) >= 3
     result = {'duration_target_s': DURATION, 'app_pid_unchanged': True, 'app_pid': pid,
               'explicit_sdk_route_requests': 0, 'apk_installed': False,
@@ -116,7 +118,7 @@ def run():
               'restored_consoles': restored,
               'recordings': [str((OUT/f'{n}-long-driving.mp4').relative_to(ROOT)) for n in ['A', 'B']]}
     (EVIDENCE/'result.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
-    print('PASS: five-minute driving, visible 50/10 signs, moving companion; no SDK request/restart.', flush=True)
+    print('PASS: long driving, visible SDK limit signs, moving companion; no SDK request/restart.', flush=True)
 
 
 if __name__ == '__main__':

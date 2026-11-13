@@ -2,9 +2,12 @@
 import json
 from pathlib import Path
 import cv2
+import argparse
 
 root=Path(__file__).resolve().parent.parent
-folder=root/'docs/test-results/2026-11-12-active-guidance/long-sign'
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--evidence', default='docs/test-results/2026-11-12-active-guidance/long-sign')
+folder=root/parser.parse_args().evidence
 result=json.loads((folder/'result.json').read_text('utf-8'))
 movies=[]
 for relative in result['recordings']:
@@ -12,9 +15,9 @@ for relative in result['recordings']:
     assert cap.isOpened(),relative
     fps=cap.get(cv2.CAP_PROP_FPS);count=cap.get(cv2.CAP_PROP_FRAME_COUNT)
     duration=count/fps
-    assert duration>=300,(relative,duration)
+    assert duration>=result['duration_target_s'],(relative,duration)
     captures=[]
-    for seconds in (30,120,240,295):
+    for seconds in (30,120,240,295,result['duration_target_s']-2):
         cap.set(cv2.CAP_PROP_POS_MSEC,seconds*1000)
         ok,frame=cap.read()
         assert ok,(relative,seconds)
@@ -26,7 +29,7 @@ for relative in result['recordings']:
 limits=[]
 for vehicle in (0,1):
     groups=[]
-    for limit in (50,10):
+    for limit in sorted({s['limit_kph'] for s in result['road_speed_sections']},reverse=True):
         values=[t['speeds_kph'][vehicle] for t in result['control_samples'] if t['limits_kph'][vehicle]==limit]
         assert values and max(values)<=limit+1e-6
         groups.append({'limit_kph':limit,'samples':len(values),'min_kph':min(values),'max_kph':max(values)})
