@@ -1,0 +1,38 @@
+{
+  "origin": {
+    "name": "대전시청",
+    "latitude": 36.35062946,
+    "longitude": 127.38599016
+  },
+  "waypoints": [
+    {
+      "name": "유림공원 주차장",
+      "latitude": 36.36076667,
+      "longitude": 127.3570758,
+      "poi_id": "",
+      "tmap_poi_id": "10177325",
+      "source": "tmap",
+      "address": "대전 유성구",
+      "parking": "주차 가능 여부 미확인",
+      "phone": "",
+      "charging_status": "충전기 가용 상태·커넥터·운영 시간 미확인"
+    },
+    {
+      "name": "한빛탑광장 엑스포과학공원 주차장",
+      "latitude": 36.37496008,
+      "longitude": 127.39032244,
+      "poi_id": "",
+      "tmap_poi_id": "7837213",
+      "source": "tmap",
+      "address": "대전 유성구",
+      "parking": "주차 가능 여부 미확인",
+      "phone": "",
+      "charging_status": "충전기 가용 상태·커넥터·운영 시간 미확인"
+    }
+  ],
+  "destination": {
+    "name": "한밭수목원 주차장1",
+    "latitude": 36.36548894,
+    "longitude": 127.39029492
+  }
+}

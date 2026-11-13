@@ -1,0 +1,17 @@
+{
+  "phase": "ROUTE_FAILED",
+  "sdk_requested_plan_version": "1",
+  "simulation": "false",
+  "companions_updated_at": "1794567345467",
+  "request_origin_latitude": "36.35063834710765",
+  "arrived_final": "false",
+  "companion_positions": "100e12d9ce07:36.3501458008566,127.38654901483117",
+  "updated_at": "1794567344640",
+  "waypoint_count": "2",
+  "plan_version": "1",
+  "request_origin_longitude": "127.38596238198382",
+  "via_passed": "false",
+  "error_code": "429",
+  "detail": "TMAP 경로 요청 제한(429). SK Open API 대시보드에서 내비게이션 사용량·한도를 확인한 뒤 다시 시도해 주세요.",
+  "companion_count": "1"
+}

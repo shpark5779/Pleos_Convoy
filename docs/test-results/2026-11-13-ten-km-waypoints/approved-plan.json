@@ -1,0 +1,111 @@
+{
+  "code": "7066CBD8",
+  "destination": {
+    "name": "한밭수목원 주차장1",
+    "latitude": 36.36548894,
+    "longitude": 127.39029492,
+    "poi_id": "",
+    "address": "",
+    "source": "manual"
+  },
+  "members": {
+    "eab3fe6fa196": {
+      "id": "eab3fe6fa196",
+      "name": "A - SDK navigation",
+      "location": null,
+      "last_seen": 1794567334.296409,
+      "role": "driver"
+    },
+    "100e12d9ce07": {
+      "id": "100e12d9ce07",
+      "name": "B - GPS only",
+      "location": null,
+      "last_seen": 1794567334.2985554,
+      "role": "driver"
+    }
+  },
+  "proposal": {
+    "id": "31f443b8904ef89c",
+    "place": {
+      "name": "한밭수목원 주차장1",
+      "latitude": 36.36548894,
+      "longitude": 127.39029492,
+      "poi_id": "",
+      "address": "",
+      "source": "manual"
+    },
+    "kind": "plan",
+    "plan": {
+      "destination": {
+        "name": "한밭수목원 주차장1",
+        "latitude": 36.36548894,
+        "longitude": 127.39029492,
+        "poi_id": "",
+        "address": "",
+        "source": "manual"
+      },
+      "waypoints": [
+        {
+          "name": "유림공원 주차장",
+          "latitude": 36.36076667,
+          "longitude": 127.3570758,
+          "poi_id": "",
+          "address": "대전 유성구",
+          "source": "tmap"
+        },
+        {
+          "name": "한빛탑광장 엑스포과학공원 주차장",
+          "latitude": 36.37496008,
+          "longitude": 127.39032244,
+          "poi_id": "",
+          "address": "대전 유성구",
+          "source": "tmap"
+        }
+      ],
+      "driving_mode": "individual",
+      "arrival_at": null
+    },
+    "created_at": 1794567334.296409,
+    "proposer_id": "eab3fe6fa196",
+    "status": "approved",
+    "votes": {
+      "eab3fe6fa196": true,
+      "100e12d9ce07": true
+    },
+    "applications": {
+      "eab3fe6fa196": {
+        "state": "not_requested",
+        "detail": "",
+        "updated_at": 1794567334.296409
+      },
+      "100e12d9ce07": {
+        "state": "not_requested",
+        "detail": "",
+        "updated_at": 1794567334.296409
+      }
+    }
+  },
+  "revision": 4,
+  "leader_id": "eab3fe6fa196",
+  "waypoints": [
+    {
+      "name": "유림공원 주차장",
+      "latitude": 36.36076667,
+      "longitude": 127.3570758,
+      "poi_id": "",
+      "address": "대전 유성구",
+      "source": "tmap"
+    },
+    {
+      "name": "한빛탑광장 엑스포과학공원 주차장",
+      "latitude": 36.37496008,
+      "longitude": 127.39032244,
+      "poi_id": "",
+      "address": "대전 유성구",
+      "source": "tmap"
+    }
+  ],
+  "plan_version": 1,
+  "arrival_at": null,
+  "driving_mode": "individual"
+}

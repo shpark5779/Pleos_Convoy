@@ -297,7 +297,10 @@ class NativeTmapActivity : AppCompatActivity() {
             }
             override fun onPermissionDenied(errorCode:Int,errorMsg:String?) { phase("SDK_PERMISSION_DENIED",safe(errorMsg)) }
             override fun onFailRouteRequest(errorCode:String,errorMessage:String) { routeFailed(errorCode.toIntOrNull() ?: -1,errorMessage) }
-            override fun onPassedViaPoint() { resultPrefs.edit().putBoolean("via_passed",true).apply() }
+            override fun onPassedViaPoint() {
+                resultPrefs.edit().putBoolean("via_passed",true)
+                    .putInt("via_passed_count",resultPrefs.getInt("via_passed_count",0)+1).apply()
+            }
             override fun onApproachingViaPoint() {}
             override fun onRouteChanged(index:Int) {}
             override fun onRouteOptionChanged(originalOption:RoutePlanType,changedOption:RoutePlanType) {}
@@ -339,7 +342,8 @@ class NativeTmapActivity : AppCompatActivity() {
             prefs.getString("member_id","")!!,prefs.getString("token","")!!)
         requesting=true
         this.simulation=simulation;simulationStarted=false;startingSimulation=false;activeSession=session
-        resultPrefs.edit().putBoolean("arrived_final",false).putBoolean("via_passed",false).putInt("error_code",0).apply()
+        resultPrefs.edit().putBoolean("arrived_final",false).putBoolean("via_passed",false)
+            .putInt("via_passed_count",0).putInt("error_code",0).apply()
         phase("PLAN_LOADING","현재 승인된 동행 이동 계획 확인 중")
         io.execute {
             val response=runCatching { plan ?: ConvoyApi.room(session) }
