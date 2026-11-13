@@ -1,0 +1,140 @@
+{
+  "videos": [
+    {
+      "file": "build\\active-guidance-drive-20261112\\long-sign\\A-long-driving.mp4",
+      "duration_s": 306.56094444444443,
+      "fps": 30.962848242790947,
+      "frames": 9492.0,
+      "decoded_frames": [
+        {
+          "seconds": 30,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\A-long-driving-frame-30s.png"
+        },
+        {
+          "seconds": 120,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\A-long-driving-frame-120s.png"
+        },
+        {
+          "seconds": 240,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\A-long-driving-frame-240s.png"
+        },
+        {
+          "seconds": 295,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\A-long-driving-frame-295s.png"
+        }
+      ]
+    },
+    {
+      "file": "build\\active-guidance-drive-20261112\\long-sign\\B-long-driving.mp4",
+      "duration_s": 307.4698222222222,
+      "fps": 27.697027104809997,
+      "frames": 8516.0,
+      "decoded_frames": [
+        {
+          "seconds": 30,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\B-long-driving-frame-30s.png"
+        },
+        {
+          "seconds": 120,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\B-long-driving-frame-120s.png"
+        },
+        {
+          "seconds": 240,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\B-long-driving-frame-240s.png"
+        },
+        {
+          "seconds": 295,
+          "file": "docs\\test-results\\2026-11-12-active-guidance\\long-sign\\B-long-driving-frame-295s.png"
+        }
+      ]
+    }
+  ],
+  "speed_statistics": [
+    {
+      "vehicle": "A",
+      "sections": [
+        {
+          "limit_kph": 50,
+          "samples": 171,
+          "min_kph": 0.0,
+          "max_kph": 47.49601903275216
+        },
+        {
+          "limit_kph": 10,
+          "samples": 78,
+          "min_kph": 0.0,
+          "max_kph": 10.0
+        }
+      ]
+    },
+    {
+      "vehicle": "B",
+      "sections": [
+        {
+          "limit_kph": 50,
+          "samples": 193,
+          "min_kph": 0.0,
+          "max_kph": 42.999071188079256
+        },
+        {
+          "limit_kph": 10,
+          "samples": 56,
+          "min_kph": 0.0,
+          "max_kph": 8.599566647280016
+        }
+      ]
+    }
+  ],
+  "speeding_samples": 0,
+  "control_ticks": 249,
+  "ui_badges": [
+    {
+      "seconds": 0,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 25 km/h"
+      ]
+    },
+    {
+      "seconds": 45,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 41 km/h"
+      ]
+    },
+    {
+      "seconds": 90,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 41 km/h"
+      ]
+    },
+    {
+      "seconds": 135,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 46 km/h"
+      ]
+    },
+    {
+      "seconds": 180,
+      "badges": [
+        "SDK 도로 제한속도 50 km/h · 현재 32 km/h"
+      ]
+    },
+    {
+      "seconds": 225,
+      "badges": [
+        "SDK 도로 제한속도 10 km/h · 현재 9 km/h"
+      ]
+    },
+    {
+      "seconds": 270,
+      "badges": [
+        "SDK 도로 제한속도 10 km/h · 현재 8 km/h"
+      ]
+    },
+    {
+      "seconds": 300,
+      "badges": [
+        "SDK 도로 제한속도 10 km/h · 현재 9 km/h"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # 같이 가요 — Pleos 동행 주행 시제품
 
+최신 검증: [5분 실제 내비 주행·제한속도 표지·반복 확대/축소 수정](docs/LONG_GUIDANCE_SPEED_SIGN.md). [주행 영상 11개 모음](docs/videos/README.md)은 Git LFS로 관리하며 새 PC에서는 `git lfs pull`로 받습니다.
+
 최신 구현: [한 대의 정식 내비에 동행 차량 GPS 표시](docs/SINGLE_NAVIGATION_CONVOY.md). 다른 차량은 **GPS만 공유 · 내비 미사용** 화면에서 좌표만 전송합니다.
 
 두 대 이상 차량의 모임·위치 공유·공동 경유지 제안·전원 승인·내비게이션 반영 상태를 연결한 개발용 시제품입니다.

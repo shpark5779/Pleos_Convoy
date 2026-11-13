@@ -1,0 +1,115 @@
+{
+  "origin_separation_m": 4775.815773181808,
+  "origins": [
+    {
+      "name": "Daejeon City Hall",
+      "latitude": 36.35063,
+      "longitude": 127.38599
+    },
+    {
+      "name": "Daejeon Station",
+      "latitude": 36.33223,
+      "longitude": 127.43417
+    }
+  ],
+  "destination": {
+    "name": "Hanbat Arboretum Parking 1",
+    "latitude": 36.36548894,
+    "longitude": 127.39029492
+  },
+  "waypoint": {
+    "name": "Government_Station",
+    "latitude": 36.35768412,
+    "longitude": 127.38104596
+  },
+  "speed_kph": 43.2,
+  "initial_route_m": [
+    2587.0,
+    5802.0
+  ],
+  "pending_plan_version": 0,
+  "pending_kept_old_routes": true,
+  "approved_plan_version": 1,
+  "approved_via_distance_m": [
+    8.424577198757953,
+    8.424577198757953
+  ],
+  "changed_route_m": [
+    3849.0,
+    8002.0
+  ],
+  "gps_samples": [
+    [
+      {
+        "latitude": 36.350638333333336,
+        "longitude": 127.38596166666666,
+        "measured_at": 1794381265.445,
+        "source": "sdk"
+      },
+      {
+        "latitude": 36.33182333333333,
+        "longitude": 127.43428833333333,
+        "measured_at": 1794381266.245,
+        "source": "sdk"
+      }
+    ],
+    [
+      {
+        "latitude": 36.35128666666667,
+        "longitude": 127.38754333333333,
+        "measured_at": 1794381285.458,
+        "source": "sdk"
+      },
+      {
+        "latitude": 36.33212666666667,
+        "longitude": 127.43221666666666,
+        "measured_at": 1794381287.258,
+        "source": "sdk"
+      }
+    ],
+    [
+      {
+        "latitude": 36.35205833333333,
+        "longitude": 127.39023,
+        "measured_at": 1794381319.639,
+        "source": "sdk"
+      },
+      {
+        "latitude": 36.334695,
+        "longitude": 127.43109833333334,
+        "measured_at": 1794381320.277,
+        "source": "sdk"
+      }
+    ],
+    [
+      {
+        "latitude": 36.35454333333333,
+        "longitude": 127.39024166666667,
+        "measured_at": 1794381343.502,
+        "source": "sdk"
+      },
+      {
+        "latitude": 36.337046666666666,
+        "longitude": 127.43013,
+        "measured_at": 1794381343.292,
+        "source": "sdk"
+      }
+    ]
+  ],
+  "native_initial": {
+    "requested": true,
+    "phase": "ROUTE_FAILED",
+    "error_code": "429",
+    "sdk_plan_version": null
+  },
+  "native_after": {
+    "phase": "ROUTE_FAILED",
+    "error_code": "429",
+    "sdk_requested_plan_version": "1",
+    "sdk_plan_version": null,
+    "waypoint_count": "1"
+  },
+  "B_native_sdk_initialized": false,
+  "both_moving_before_and_after": true,
+  "ui_proposal_and_approval": true
+}

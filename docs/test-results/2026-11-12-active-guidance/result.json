@@ -1,0 +1,439 @@
+{
+  "native_diagnostic_phase_before": "ROUTE_FAILED",
+  "native_guidance_ui_visible_before": true,
+  "app_pid_unchanged": true,
+  "explicit_sdk_route_requests": 0,
+  "sessions_reused": true,
+  "samples": [
+    {
+      "seconds": 0.0,
+      "speeds_kph": [
+        0.0001978669281287527,
+        0.00034785087938968143
+      ],
+      "progress_m": [
+        2.0391289508380823e-09,
+        3.584797143443967e-09
+      ],
+      "positions": [
+        [
+          127.38673730619752,
+          36.35087722241266
+        ],
+        [
+          127.38675114336384,
+          36.35273812077884
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.35276198004715,127.38675292867453",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:01",
+        "2.2",
+        "km",
+        "대전광역시 서구 둔산1동",
+        "932",
+        "m",
+        "정부청사 지하차도",
+        "314",
+        "m",
+        "0"
+      ]
+    },
+    {
+      "seconds": 25.92,
+      "speeds_kph": [
+        28.028810181067467,
+        48.621219697485984
+      ],
+      "progress_m": [
+        241.63197855034574,
+        190.27358763766068
+      ],
+      "positions": [
+        [
+          127.38675391243207,
+          36.353050012843084
+        ],
+        [
+          127.38676191385672,
+          36.354449253495254
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.35422533288684,127.38676128826414",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 28,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 49,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:02",
+        "2.2",
+        "km",
+        "둔산중로",
+        "932",
+        "m",
+        "정부청사 지하차도",
+        "314",
+        "m",
+        "0"
+      ]
+    },
+    {
+      "seconds": 50.45,
+      "speeds_kph": [
+        26.360897689035006,
+        36.15619254758111
+      ],
+      "progress_m": [
+        331.2027326645215,
+        421.3457908706651
+      ],
+      "positions": [
+        [
+          127.38676025507856,
+          36.3538555210519
+        ],
+        [
+          127.38677026231584,
+          36.356527320017314
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.356293676794294,127.38676850393459",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 26,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 36,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:01",
+        "2.0",
+        "km",
+        "한밭수목원 주차장1",
+        "661",
+        "m",
+        "정부청사 지하차도",
+        "314",
+        "m",
+        "0",
+        "449m"
+      ]
+    },
+    {
+      "seconds": 75.39,
+      "speeds_kph": [
+        39.79760218372651,
+        52.428972268380065
+      ],
+      "progress_m": [
+        557.4324204452832,
+        687.176729364801
+      ],
+      "positions": [
+        [
+          127.38676546625469,
+          36.355890047988275
+        ],
+        [
+          127.38677941221347,
+          36.35891794939148
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.3584768202048,127.38677957305613",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 40,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 52,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:01",
+        "1.8",
+        "km",
+        "둔산중로",
+        "489",
+        "m",
+        "둥지 네거리",
+        "314",
+        "m",
+        "0",
+        "277m"
+      ]
+    },
+    {
+      "seconds": 100.33,
+      "speeds_kph": [
+        0.0,
+        54.14435773400096
+      ],
+      "progress_m": [
+        708.0671095738783,
+        870.0824450520614
+      ],
+      "positions": [
+        [
+          127.38677566136433,
+          36.35724471341203
+        ],
+        [
+          127.38785281893097,
+          36.35976671509055
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.35972039357181,127.38756228302265",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 54,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:01",
+        "1.6",
+        "km",
+        "한밭수목원 주차장1",
+        "271",
+        "m",
+        "둥지 네거리",
+        "314",
+        "m",
+        "0",
+        "59m"
+      ]
+    },
+    {
+      "seconds": 125.59,
+      "speeds_kph": [
+        40.85078728744227,
+        36.60984241265326
+      ],
+      "progress_m": [
+        889.5012009784463,
+        1117.2532804763239
+      ],
+      "positions": [
+        [
+          127.38677923328459,
+          36.35887635713181
+        ],
+        [
+          127.39027007454979,
+          36.36005348850721
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.35981593624659,127.39027008099741",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 41,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 37,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:01",
+        "1.4",
+        "km",
+        "대전광역시 서구 둔산2동",
+        "90",
+        "m",
+        "둥지 네거리",
+        "314",
+        "m",
+        "0",
+        "90m"
+      ]
+    }
+  ],
+  "final_progress_m": [
+    1081.9972485903436,
+    1341.9069606209544
+  ],
+  "final_native": {
+    "phase": "ROUTE_FAILED",
+    "sdk_requested_plan_version": "0",
+    "sdk_plan_version": "0",
+    "simulation": "false",
+    "companions_updated_at": "1794444977214",
+    "request_origin_latitude": "36.35087998032649",
+    "duration_s": "494",
+    "arrived_final": "false",
+    "companion_positions": "b137b7117b5e:36.362073825009496,127.39027783750855",
+    "updated_at": "1794444839419",
+    "waypoint_count": "0",
+    "no_location_signal": "false",
+    "plan_version": "0",
+    "request_origin_longitude": "127.38673957261693",
+    "via_passed": "false",
+    "error_code": "-1",
+    "detail": "정식 SDK 경로 요청 실패 (-1): ",
+    "distance_m": "2271",
+    "companion_count": "1"
+  },
+  "restored_consoles": [
+    {
+      "device": "emulator-5554",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    },
+    {
+      "device": "emulator-5556",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    }
+  ],
+  "recordings": [
+    "build\\active-guidance-drive-20261112\\A-active-driving.mp4",
+    "build\\active-guidance-drive-20261112\\B-active-driving.mp4"
+  ],
+  "note": "Continued the already successful real native guidance. Emulator GPS replay; not a full arrival test."
+}

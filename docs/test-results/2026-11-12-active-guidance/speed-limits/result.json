@@ -1,0 +1,819 @@
+{
+  "native_diagnostic_phase_before": "ROUTE_FAILED",
+  "native_guidance_ui_visible_before": true,
+  "app_pid_unchanged": true,
+  "explicit_sdk_route_requests": 0,
+  "road_speed_sections": [
+    {
+      "start_m": 0.0,
+      "end_m": 2062.1963156245884,
+      "limit_kph": 50
+    },
+    {
+      "start_m": 2062.1963156245884,
+      "end_m": 2273.2534871384705,
+      "limit_kph": 10
+    }
+  ],
+  "raw_sdk_road_info": [
+    {
+      "start_index": 0,
+      "end_index": 19,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 20,
+      "end_index": 21,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 22,
+      "end_index": 32,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 33,
+      "end_index": 33,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 34,
+      "end_index": 34,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 35,
+      "end_index": 41,
+      "limit_kph": 10
+    }
+  ],
+  "control_samples": [
+    {
+      "seconds": 4.060000355821103e-05,
+      "progress_m": [
+        1842.1963156255774,
+        1942.1963156255774
+      ],
+      "speeds_kph": [
+        0.00017539201537147164,
+        0.00017539201537147164
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 5.908847899991088,
+      "progress_m": [
+        1844.596413065586,
+        1944.596413065586
+      ],
+      "speeds_kph": [
+        8.640175392015372,
+        8.640175392015372
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 7.433737100000144,
+      "progress_m": [
+        1849.6513936815986,
+        1949.6513936815986
+      ],
+      "speeds_kph": [
+        15.227696736054494,
+        15.227696736054494
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 8.838123699999414,
+      "progress_m": [
+        1856.775211727444,
+        1956.775211727444
+      ],
+      "speeds_kph": [
+        21.294646848051343,
+        21.294646848051343
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 10.216366099994048,
+      "progress_m": [
+        1866.067494433912,
+        1965.4241785521233
+      ],
+      "speeds_kph": [
+        27.24865401602816,
+        23.887943049004505
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 11.724104199995054,
+      "progress_m": [
+        1878.8436350057486,
+        1972.7126726931742
+      ],
+      "speeds_kph": [
+        33.76208260803251,
+        10.917277974150455
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 13.213210300003993,
+      "progress_m": [
+        1894.1394647366176,
+        1974.9705873080077
+      ],
+      "speeds_kph": [
+        40.195020960071126,
+        0.0
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 14.656538600000204,
+      "progress_m": [
+        1911.5045524829516,
+        1974.9705873080077
+      ],
+      "speeds_kph": [
+        46.43019921605476,
+        0.0
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 16.156539399991743,
+      "progress_m": [
+        1931.05507669925,
+        1974.9705873080077
+      ],
+      "speeds_kph": [
+        47.41226697339166,
+        0.0
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 22.23277099999541,
+      "progress_m": [
+        1957.052088011947,
+        1977.3705873080078
+      ],
+      "speeds_kph": [
+        46.17697375231725,
+        8.64
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 23.64668370000436,
+      "progress_m": [
+        1975.0987900890423,
+        1981.9634672619773
+      ],
+      "speeds_kph": [
+        45.7213838720703,
+        14.748102864038666
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 25.06755589999375,
+      "progress_m": [
+        1992.9250638907533,
+        1988.995674325559
+      ],
+      "speeds_kph": [
+        44.60987278372071,
+        20.88627076799283
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 26.566718699992634,
+      "progress_m": [
+        2008.5988123893083,
+        1999.041923387788
+      ],
+      "speeds_kph": [
+        30.6661340580176,
+        27.362654063988014
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 28.033606900004088,
+      "progress_m": [
+        2018.379535194891,
+        2011.4824117513265
+      ],
+      "speeds_kph": [
+        17.341072080559353,
+        33.69961108803749
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 29.51097020000452,
+      "progress_m": [
+        2022.8111420627051,
+        2026.294434850674
+      ],
+      "speeds_kph": [
+        4.256573839202658,
+        38.48748487899406
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 31.041198299993994,
+      "progress_m": [
+        2023.7157988541535,
+        2040.63532920971
+      ],
+      "speeds_kph": [
+        0.0,
+        28.98901707896323
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 38.432893099990906,
+      "progress_m": [
+        2026.1157988541536,
+        2053.440094485699
+      ],
+      "speeds_kph": [
+        8.64,
+        17.10813791459652
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 39.788776000001235,
+      "progress_m": [
+        2030.4729688773027,
+        2059.1206544282304
+      ],
+      "speeds_kph": [
+        14.497414128044621,
+        13.056732212398925
+      ],
+      "limits_kph": [
+        50,
+        50
+      ]
+    },
+    {
+      "seconds": 41.27112659999693,
+      "progress_m": [
+        2037.7609008945021,
+        2063.8676212100345
+      ],
+      "speeds_kph": [
+        20.901168720026035,
+        10.0
+      ],
+      "limits_kph": [
+        50,
+        10
+      ]
+    },
+    {
+      "seconds": 42.78223440000147,
+      "progress_m": [
+        2047.6585625849546,
+        2067.4502063558057
+      ],
+      "speeds_kph": [
+        26.258381492767132,
+        7.0700019214212215
+      ],
+      "limits_kph": [
+        50,
+        10
+      ]
+    },
+    {
+      "seconds": 44.22746850000112,
+      "progress_m": [
+        2056.0125168960026,
+        2070.2821029223646
+      ],
+      "speeds_kph": [
+        15.360115496446602,
+        7.038200534658792
+      ],
+      "limits_kph": [
+        50,
+        10
+      ]
+    },
+    {
+      "seconds": 45.72341599999345,
+      "progress_m": [
+        2061.281600420506,
+        2073.201983405233
+      ],
+      "speeds_kph": [
+        10.0,
+        7.015193369045624
+      ],
+      "limits_kph": [
+        50,
+        10
+      ]
+    },
+    {
+      "seconds": 51.36762920000183,
+      "progress_m": [
+        2066.8371559760617,
+        2077.1014075684398
+      ],
+      "speeds_kph": [
+        10.0,
+        7.022733618498115
+      ],
+      "limits_kph": [
+        10,
+        10
+      ]
+    },
+    {
+      "seconds": 52.82355839999218,
+      "progress_m": [
+        2070.5818202743512,
+        2079.9468391174096
+      ],
+      "speeds_kph": [
+        8.518471192049375,
+        7.0487659796413915
+      ],
+      "limits_kph": [
+        10,
+        10
+      ]
+    },
+    {
+      "seconds": 54.18438999999489,
+      "progress_m": [
+        2073.8207300195454,
+        2082.6175434583265
+      ],
+      "speeds_kph": [
+        8.618219464863209,
+        7.081616688252637
+      ],
+      "limits_kph": [
+        10,
+        10
+      ]
+    },
+    {
+      "seconds": 55.5269391000038,
+      "progress_m": [
+        2077.0538348090695,
+        2085.2659735687776
+      ],
+      "speeds_kph": [
+        8.720702802052637,
+        7.121734827995264
+      ],
+      "limits_kph": [
+        10,
+        10
+      ]
+    },
+    {
+      "seconds": 57.010367199996836,
+      "progress_m": [
+        2080.6710499957776,
+        2088.211440093335
+      ],
+      "speeds_kph": [
+        8.83589420755069,
+        7.174447762123381
+      ],
+      "limits_kph": [
+        10,
+        10
+      ]
+    },
+    {
+      "seconds": 58.358448800005135,
+      "progress_m": [
+        2083.999259052042,
+        2090.9083290053395
+      ],
+      "speeds_kph": [
+        8.939814032185126,
+        7.229428209711793
+      ],
+      "limits_kph": [
+        10,
+        10
+      ]
+    },
+    {
+      "seconds": 59.64292089999071,
+      "progress_m": [
+        2087.206115790953,
+        2093.498137851187
+      ],
+      "speeds_kph": [
+        9.035950891333028,
+        7.287526802633413
+      ],
+      "limits_kph": [
+        10,
+        10
+      ]
+    }
+  ],
+  "speeding_samples": 0,
+  "sessions_reused": true,
+  "samples": [
+    {
+      "seconds": 0.0,
+      "speeds_kph": [
+        0.00017539201537147164,
+        0.00017539201537147164
+      ],
+      "progress_m": [
+        1842.1963156255774,
+        1942.1963156255774
+      ],
+      "limits_kph": [
+        50,
+        50
+      ],
+      "positions": [
+        [
+          127.3903429795418,
+          36.364712068368185
+        ],
+        [
+          127.38952477333653,
+          36.36490617512884
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.36490617512884,127.38952477333653",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:40",
+        "431",
+        "m",
+        "문예로",
+        "22",
+        "m",
+        "유성IC",
+        "180",
+        "m",
+        "22m",
+        "0",
+        "22m"
+      ]
+    },
+    {
+      "seconds": 16.16,
+      "speeds_kph": [
+        47.41226697339166,
+        0.0
+      ],
+      "progress_m": [
+        1931.05507669925,
+        1974.9705873080077
+      ],
+      "limits_kph": [
+        50,
+        50
+      ],
+      "positions": [
+        [
+          127.3896491995436,
+          36.364905864839045
+        ],
+        [
+          127.38915874776775,
+          36.3649070879108
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.3649070250266,127.38918396433058",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 47,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:39",
+        "341",
+        "m",
+        "대전광역시 서구 만년동",
+        "112",
+        "m",
+        "교차로",
+        "52",
+        "m",
+        "112m",
+        "47"
+      ]
+    },
+    {
+      "seconds": 31.04,
+      "speeds_kph": [
+        0.0,
+        28.98901707896323
+      ],
+      "progress_m": [
+        2023.7157988541535,
+        2040.63532920971
+      ],
+      "limits_kph": [
+        50,
+        50
+      ],
+      "positions": [
+        [
+          127.38861435752305,
+          36.36490844549246
+        ],
+        [
+          127.38842539891608,
+          36.36490891671093
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.36490810478573,127.38875098092436",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 29,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:39",
+        "249",
+        "m",
+        "대전광역시 서구 만년동",
+        "20",
+        "m",
+        "교차로",
+        "52",
+        "m",
+        "0"
+      ]
+    },
+    {
+      "seconds": 45.72,
+      "speeds_kph": [
+        10.0,
+        7.015193369045624
+      ],
+      "progress_m": [
+        2061.281600420506,
+        2073.201983405233
+      ],
+      "limits_kph": [
+        50,
+        10
+      ],
+      "positions": [
+        [
+          127.38839390148685,
+          36.36506777415104
+        ],
+        [
+          127.3883959278735,
+          36.3651749641727
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.36512324356214,127.38839492032913",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 10,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 7,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:39",
+        "211",
+        "m",
+        "한밭수목원 주차장1",
+        "34",
+        "m",
+        "교차로",
+        "13",
+        "m",
+        "10"
+      ]
+    }
+  ],
+  "final_progress_m": [
+    2087.206115790953,
+    2093.498137851187
+  ],
+  "final_native": {
+    "phase": "ROUTE_FAILED",
+    "sdk_requested_plan_version": "0",
+    "sdk_plan_version": "0",
+    "simulation": "false",
+    "companions_updated_at": "1794447596792",
+    "request_origin_latitude": "36.35087998032649",
+    "duration_s": "494",
+    "arrived_final": "false",
+    "companion_positions": "b137b7117b5e:36.36535746942124,127.38839948317055",
+    "updated_at": "1794447370026",
+    "waypoint_count": "0",
+    "no_location_signal": "false",
+    "plan_version": "0",
+    "request_origin_longitude": "127.38673957261693",
+    "via_passed": "false",
+    "error_code": "-1",
+    "detail": "정식 SDK 경로 요청 실패 (-1): ",
+    "distance_m": "2271",
+    "companion_count": "1"
+  },
+  "initial_progress_m": [
+    1842.1963156245884,
+    1942.1963156245884
+  ],
+  "travelled_m": [
+    245.00980016636458,
+    151.3018222265987
+  ],
+  "geometry_source": "running native SDK observableRouteData (42 points), not REST geometry",
+  "restored_consoles": [
+    {
+      "device": "emulator-5554",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    },
+    {
+      "device": "emulator-5556",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    }
+  ],
+  "recordings": [
+    "build\\active-guidance-drive-20261112\\speed-limits\\A-active-driving.mp4",
+    "build\\active-guidance-drive-20261112\\speed-limits\\B-active-driving.mp4"
+  ],
+  "note": "Continued the already successful real native guidance. Emulator GPS replay; not a full arrival test."
+}

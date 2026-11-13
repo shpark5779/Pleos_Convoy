@@ -1,0 +1,9 @@
+{
+  "phase": "NAVIGATION_RUNNING",
+  "distance_m": 2271,
+  "duration_s": 494,
+  "native_guidance_requests": 1,
+  "device": "emulator-5554",
+  "video_seconds": 20.014944444444442,
+  "video_decoded": true
+}

@@ -1,0 +1,378 @@
+{
+  "samples": [
+    {
+      "seconds": 0.0,
+      "speeds_kph": [
+        0.0002181336432953945,
+        0.000383479814919478
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.38596238198379,
+          36.35063834710765
+        ],
+        [
+          127.38592350998259,
+          36.350143958558
+        ]
+      ],
+      "progress_m": [
+        2.478240912566757e-09,
+        4.356757408530586e-09
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.350143958760015,127.38593489131233",
+      "native_phase": "SDK_READY"
+    },
+    {
+      "seconds": 8.68,
+      "speeds_kph": [
+        39.39279244325516,
+        50.12467965572227
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 39,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 50,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.38593022879745,
+          36.35014395867726
+        ],
+        [
+          127.3867373321859,
+          36.34991912480662
+        ]
+      ],
+      "progress_m": [
+        64.58243686973076,
+        98.19510840563859
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.350145886206604,127.38656594011981",
+      "native_phase": "SDK_READY"
+    },
+    {
+      "seconds": 16.06,
+      "speeds_kph": [
+        40.79475522928038,
+        0.0
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 41,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.38673732831823,
+          36.350061715105575
+        ],
+        [
+          127.38673733671124,
+          36.34975228759036
+        ]
+      ],
+      "progress_m": [
+        146.32050724098343,
+        116.74656043303352
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.34975228759036,127.38673733671124",
+      "native_phase": "SDK_READY"
+    },
+    {
+      "seconds": 24.67,
+      "speeds_kph": [
+        35.505319903768715,
+        49.65331890776562
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 36,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 50,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.38673734992669,
+          36.349265063847824
+        ],
+        [
+          127.38673734760684,
+          36.34935059235732
+        ]
+      ],
+      "progress_m": [
+        234.90408542890322,
+        183.86583187564813
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.34958656060837,127.38673734120647",
+      "native_phase": "SDK_READY"
+    },
+    {
+      "seconds": 32.22,
+      "speeds_kph": [
+        0.0,
+        43.36762617964039
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 43,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.3867373464501,
+          36.34939323885002
+        ],
+        [
+          127.38673732488421,
+          36.35018831751262
+        ]
+      ],
+      "progress_m": [
+        252.58862217587307,
+        277.0166190897504
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.349996760139334,127.3867373300801",
+      "native_phase": "SDK_READY"
+    },
+    {
+      "seconds": 40.27,
+      "speeds_kph": [
+        23.253074595384838,
+        38.012521931845136
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 23,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 38,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.38673734128496,
+          36.34958366674458
+        ],
+        [
+          127.38674008047647,
+          36.35099704948685
+        ]
+      ],
+      "progress_m": [
+        273.7632379480732,
+        366.9446576169357
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.35091307949705,127.38673995217877",
+      "native_phase": "SDK_READY"
+    },
+    {
+      "seconds": 48.52,
+      "speeds_kph": [
+        24.992848117180323,
+        36.00213477526507
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 25,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 36,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.38673732808678,
+          36.35007024824388
+        ],
+        [
+          127.38674149307455,
+          36.351749699741596
+        ]
+      ],
+      "progress_m": [
+        327.8686320823247,
+        450.6524864786676
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.35149949421215,127.38673620437618",
+      "native_phase": "SDK_READY"
+    },
+    {
+      "seconds": 56.5,
+      "speeds_kph": [
+        31.949863194708414,
+        38.135422726670505
+      ],
+      "console": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 32,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 38,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "positions": [
+        [
+          127.38673731261407,
+          36.35064067149742
+        ],
+        [
+          127.38675038570108,
+          36.35248470469417
+        ]
+      ],
+      "progress_m": [
+        391.2968039317118,
+        532.385960597912
+      ],
+      "companion_count": "1",
+      "companion_positions": "b137b7117b5e:36.35231952071109,127.38674759038442",
+      "native_phase": "SDK_READY"
+    }
+  ],
+  "initial_native": {
+    "phase": "SDK_READY",
+    "error_code": null,
+    "sdk_plan_version": null
+  },
+  "final_native": {
+    "phase": "SDK_READY",
+    "detail": "정식 SDK 초기화 성공 · 모임에서 승인된 목적지·경유지로 안내를 요청할 수 있습니다.",
+    "companion_positions": "b137b7117b5e:36.35276198004715,127.38675292867453",
+    "updated_at": "1794441812593",
+    "companion_count": "1",
+    "companions_updated_at": "1794441887770"
+  },
+  "restored_consoles": [
+    {
+      "device": "emulator-5554",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    },
+    {
+      "device": "emulator-5556",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    }
+  ],
+  "B_native_sdk_initialized": false,
+  "recordings": [
+    "build\\native-variable-20261112\\overview\\A-driving.mp4",
+    "build\\native-variable-20261112\\overview\\B-driving.mp4"
+  ],
+  "native_route_requested": false,
+  "note": "A official native SDK, B map, variable per-car emulator GPS and console speeds; no physical driving"
+}

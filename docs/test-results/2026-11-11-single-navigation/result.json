@@ -1,0 +1,36 @@
+{
+  "marker_filter_tests": 3,
+  "native_sdk_devices": 1,
+  "gps_only_devices": 1,
+  "route": {
+    "attempted": true,
+    "phase": "ROUTE_REQUESTED",
+    "distance_m": "2589",
+    "resumed_without_new_request": true
+  },
+  "movement_samples": [
+    {
+      "latitude": 36.3509,
+      "longitude": 127.38649833333334,
+      "source": "sdk",
+      "companion_count": "1",
+      "positions": "029570656a48:36.3509,127.38649833333334"
+    },
+    {
+      "latitude": 36.3513,
+      "longitude": 127.38649833333334,
+      "source": "sdk",
+      "companion_count": "1",
+      "positions": "029570656a48:36.3513,127.38649833333334"
+    },
+    {
+      "latitude": 36.3517,
+      "longitude": 127.38649833333334,
+      "source": "sdk",
+      "companion_count": "1",
+      "positions": "029570656a48:36.3517,127.38649833333334"
+    }
+  ],
+  "stale_hidden": true,
+  "gps_sender_native_sdk_initialized": false
+}

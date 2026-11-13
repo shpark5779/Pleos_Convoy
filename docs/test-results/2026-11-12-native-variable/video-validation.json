@@ -1,0 +1,44 @@
+[
+  {
+    "file": "build\\native-variable-20261112\\overview\\A-driving.mp4",
+    "duration_seconds": 72.02233333333334,
+    "frames": 2322,
+    "fps": 32.239999629744474,
+    "size_bytes": 15700700,
+    "frame_checks": [
+      {
+        "seconds": 8,
+        "largest_purple_component_px": 875
+      },
+      {
+        "seconds": 24,
+        "largest_purple_component_px": 885
+      },
+      {
+        "seconds": 40,
+        "largest_purple_component_px": 884
+      }
+    ]
+  },
+  {
+    "file": "build\\native-variable-20261112\\overview\\B-driving.mp4",
+    "duration_seconds": 71.99914444444444,
+    "frames": 2490,
+    "fps": 34.58374428214656,
+    "size_bytes": 16832967,
+    "frame_checks": [
+      {
+        "seconds": 8,
+        "decoded": true
+      },
+      {
+        "seconds": 24,
+        "decoded": true
+      },
+      {
+        "seconds": 40,
+        "decoded": true
+      }
+    ]
+  }
+]

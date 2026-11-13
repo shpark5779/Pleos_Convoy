@@ -6,3 +6,4 @@ gradlew text eol=lf
 *.jpg binary
 *.jar binary
 docs/test-results/** whitespace=-blank-at-eol,-blank-at-eof
+docs/videos/**/*.mp4 filter=lfs diff=lfs merge=lfs -text

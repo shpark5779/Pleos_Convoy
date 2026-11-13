@@ -1,0 +1,40 @@
+[
+  {
+    "device": "A",
+    "seconds": 75.04137777777778,
+    "frames": 2564,
+    "frame_checks": [
+      {
+        "second": 15,
+        "purple_marker_pixels": 885
+      },
+      {
+        "second": 30,
+        "purple_marker_pixels": 868
+      },
+      {
+        "second": 45,
+        "purple_marker_pixels": 867
+      }
+    ]
+  },
+  {
+    "device": "B",
+    "seconds": 74.94012222222221,
+    "frames": 2387,
+    "frame_checks": [
+      {
+        "second": 15,
+        "decoded": true
+      },
+      {
+        "second": 30,
+        "decoded": true
+      },
+      {
+        "second": 45,
+        "decoded": true
+      }
+    ]
+  }
+]

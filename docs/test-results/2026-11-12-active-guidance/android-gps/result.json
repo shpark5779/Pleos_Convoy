@@ -1,0 +1,251 @@
+{
+  "native_diagnostic_phase_before": "ROUTE_FAILED",
+  "native_guidance_ui_visible_before": true,
+  "app_pid_unchanged": true,
+  "explicit_sdk_route_requests": 0,
+  "sessions_reused": true,
+  "samples": [
+    {
+      "seconds": 0.0,
+      "speeds_kph": [
+        0.00013760014976156115,
+        0.00024190169654920188
+      ],
+      "progress_m": [
+        9.86134684845564e-10,
+        1.733629314383153e-09
+      ],
+      "positions": [
+        [
+          127.39028666537601,
+          36.36279258824555
+        ],
+        [
+          127.39369463919954,
+          36.36480630715501
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.36481854599663,127.39372952186332",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:09",
+        "645",
+        "m",
+        "한밭수목원 주차장1",
+        "236",
+        "m",
+        "유성IC",
+        "180",
+        "m",
+        "0",
+        "236m"
+      ]
+    },
+    {
+      "seconds": 16.33,
+      "speeds_kph": [
+        40.733252326286376,
+        0.0
+      ],
+      "progress_m": [
+        136.73920692503793,
+        93.22192308156062
+      ],
+      "positions": [
+        [
+          127.39029944150168,
+          36.36402227043922
+        ],
+        [
+          127.39357651851799,
+          36.36561165444395
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.36561165444395,127.39357651851799",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 41,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:09",
+        "508",
+        "m",
+        "한밭수목원 주차장1",
+        "99",
+        "m",
+        "둔산대공원 삼거리",
+        "180",
+        "m",
+        "99m",
+        "41",
+        "99m"
+      ]
+    },
+    {
+      "seconds": 30.59,
+      "speeds_kph": [
+        0.0,
+        44.69131397334278
+      ],
+      "progress_m": [
+        192.09233963616546,
+        219.50901738702555
+      ],
+      "positions": [
+        [
+          127.39031841168959,
+          36.36451947784345
+        ],
+        [
+          127.39336642470211,
+          36.36673342149239
+        ]
+      ],
+      "native_phase": "ROUTE_FAILED",
+      "companion_positions": "b137b7117b5e:36.36638304811667,127.39340556422424",
+      "companion_count": "1",
+      "console_states": [
+        {
+          "device": "emulator-5554",
+          "gear": "Drive",
+          "speed_kph": 0,
+          "brake_pct": 100,
+          "dds_ready": true,
+          "emulator_active": true
+        },
+        {
+          "device": "emulator-5556",
+          "gear": "Drive",
+          "speed_kph": 45,
+          "brake_pct": 0,
+          "dds_ready": true,
+          "emulator_active": true
+        }
+      ],
+      "guidance_ui_texts": [
+        "정식 SDK 경로 요청 실패 (-1): ",
+        "동행 차량 1대 · 보라색 자동차 · 3초 간격 갱신",
+        "승인 계획 v0 · 경유지 0개",
+        "공동 경유지 추가",
+        "SDK 인증 확인",
+        "승인 계획 · 실제 안내",
+        "승인 계획 · SDK 모의주행",
+        "닫기",
+        "오전",
+        "10:08",
+        "453",
+        "m",
+        "문예로",
+        "44",
+        "m",
+        "둔산대공원 삼거리",
+        "180",
+        "m",
+        "44m",
+        "0",
+        "44m"
+      ]
+    }
+  ],
+  "final_progress_m": [
+    241.87333779570577,
+    331.0407584488798
+  ],
+  "final_native": {
+    "phase": "OFF_ROUTE",
+    "sdk_requested_plan_version": "0",
+    "sdk_plan_version": "0",
+    "simulation": "false",
+    "companions_updated_at": "1794445676988",
+    "request_origin_latitude": "36.35087998032649",
+    "duration_s": "494",
+    "arrived_final": "false",
+    "companion_positions": "b137b7117b5e:36.36600879659246,127.39346374274427",
+    "updated_at": "1794445662127",
+    "waypoint_count": "0",
+    "no_location_signal": "false",
+    "plan_version": "0",
+    "request_origin_longitude": "127.38673957261693",
+    "via_passed": "false",
+    "error_code": "-1",
+    "detail": "정식 SDK 경로 이탈 감지",
+    "distance_m": "2271",
+    "companion_count": "1"
+  },
+  "restored_consoles": [
+    {
+      "device": "emulator-5554",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    },
+    {
+      "device": "emulator-5556",
+      "gear": "Park",
+      "speed_kph": 0,
+      "brake_pct": 0,
+      "dds_ready": true,
+      "emulator_active": true
+    }
+  ],
+  "recordings": [
+    "build\\active-guidance-drive-20261112\\android-gps\\A-active-driving.mp4",
+    "build\\active-guidance-drive-20261112\\android-gps\\B-active-driving.mp4"
+  ],
+  "note": "Continued the already successful real native guidance. Emulator GPS replay; not a full arrival test."
+}

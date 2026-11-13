@@ -1,0 +1,115 @@
+{
+  "speeding_samples": 0,
+  "control_ticks": 29,
+  "measured_car_values": 58,
+  "sdk_road_sections": [
+    {
+      "start_index": 0,
+      "end_index": 19,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 20,
+      "end_index": 21,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 22,
+      "end_index": 32,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 33,
+      "end_index": 33,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 34,
+      "end_index": 34,
+      "limit_kph": 50
+    },
+    {
+      "start_index": 35,
+      "end_index": 41,
+      "limit_kph": 10
+    }
+  ],
+  "sections": [
+    {
+      "start_m": 0.0,
+      "end_m": 2062.1963156245884,
+      "limit_kph": 50
+    },
+    {
+      "start_m": 2062.1963156245884,
+      "end_m": 2273.2534871384705,
+      "limit_kph": 10
+    }
+  ],
+  "cars": [
+    {
+      "50": {
+        "min_kph": 0.0,
+        "max_kph": 47.41226697339166,
+        "samples": 22
+      },
+      "10": {
+        "min_kph": 8.518471192049375,
+        "max_kph": 10.0,
+        "samples": 7
+      }
+    },
+    {
+      "50": {
+        "min_kph": 0.0,
+        "max_kph": 38.48748487899406,
+        "samples": 18
+      },
+      "10": {
+        "min_kph": 7.015193369045624,
+        "max_kph": 10.0,
+        "samples": 11
+      }
+    }
+  ],
+  "videos": [
+    {
+      "device": "A",
+      "seconds": 75.00137777777778,
+      "size_bytes": 18658658,
+      "checks": [
+        {
+          "second": 15,
+          "decoded": true
+        },
+        {
+          "second": 45,
+          "decoded": true
+        },
+        {
+          "second": 55,
+          "decoded": true
+        }
+      ]
+    },
+    {
+      "device": "B",
+      "seconds": 74.96184444444444,
+      "size_bytes": 15690483,
+      "checks": [
+        {
+          "second": 15,
+          "decoded": true
+        },
+        {
+          "second": 45,
+          "decoded": true
+        },
+        {
+          "second": 55,
+          "decoded": true
+        }
+      ]
+    }
+  ]
+}

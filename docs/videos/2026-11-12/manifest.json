@@ -1,0 +1,68 @@
+[
+  {
+    "file": "docs/videos/2026-11-12/long-sign/A-long-driving.mp4",
+    "source": "build/active-guidance-drive-20261112/long-sign/A-long-driving.mp4",
+    "bytes": 65288756,
+    "sha256": "d48aa4e14fd76f0882f49b16e903da42c937a00bfec70c66c8f6700579d2aca3"
+  },
+  {
+    "file": "docs/videos/2026-11-12/long-sign/B-long-driving.mp4",
+    "source": "build/active-guidance-drive-20261112/long-sign/B-long-driving.mp4",
+    "bytes": 57032593,
+    "sha256": "874186e6d8ee3d2726c8894e724b91d052fab99cadc100a98b0c711979e444dd"
+  },
+  {
+    "file": "docs/videos/2026-11-12/sdk-route/A-active-driving.mp4",
+    "source": "build/active-guidance-drive-20261112/sdk-route/A-active-driving.mp4",
+    "bytes": 18468994,
+    "sha256": "5194b3f69b0e2079c2a67c572bbf9749821f8e790f57d23408a607004a6fbb80"
+  },
+  {
+    "file": "docs/videos/2026-11-12/sdk-route/B-active-driving.mp4",
+    "source": "build/active-guidance-drive-20261112/sdk-route/B-active-driving.mp4",
+    "bytes": 15712101,
+    "sha256": "52546ea47e1408c422515af8cbbee195b7bf237807d0d6d035e2173f76a71dd2"
+  },
+  {
+    "file": "docs/videos/2026-11-12/speed-limits/A-active-driving.mp4",
+    "source": "build/active-guidance-drive-20261112/speed-limits/A-active-driving.mp4",
+    "bytes": 18658658,
+    "sha256": "066ebf858a2e50486320992078e5688a3f6a8d05b57baa4730dab2eb5b907331"
+  },
+  {
+    "file": "docs/videos/2026-11-12/speed-limits/B-active-driving.mp4",
+    "source": "build/active-guidance-drive-20261112/speed-limits/B-active-driving.mp4",
+    "bytes": 15690483,
+    "sha256": "7b63a7383cb48b1d6b3a458efbd3786382aa1c5bfe12d3406ed9a50a4db4d840"
+  },
+  {
+    "file": "docs/videos/2026-11-12/native-overview/A-driving.mp4",
+    "source": "build/native-variable-20261112/overview/A-driving.mp4",
+    "bytes": 15700700,
+    "sha256": "5bab46b0e55322f85ba40c5e942fa3932b097c05f168df6f063f7362807c0da2"
+  },
+  {
+    "file": "docs/videos/2026-11-12/native-overview/B-driving.mp4",
+    "source": "build/native-variable-20261112/overview/B-driving.mp4",
+    "bytes": 16832967,
+    "sha256": "7f719d052f9f500eb512f49429f200ae9d130e8f3e4eba91fb9dc7d2239ef274"
+  },
+  {
+    "file": "docs/videos/2026-11-12/guidance-request/guidance-request.mp4",
+    "source": "build/guidance-request-20261112/guidance-request.mp4",
+    "bytes": 4002075,
+    "sha256": "f931355ac289ae0d53c5f1551d34f990f202b4fcaf46095042da2da6e439077f"
+  },
+  {
+    "file": "docs/videos/2026-11-12/initial-route-failure/A-driving.mp4",
+    "source": "build/native-variable-20261112/A-driving.mp4",
+    "bytes": 24226304,
+    "sha256": "26731bd699796ed51cc293a010648465c7540744410b4b1141d131f1e44b2555"
+  },
+  {
+    "file": "docs/videos/2026-11-12/initial-route-failure/B-driving.mp4",
+    "source": "build/native-variable-20261112/B-driving.mp4",
+    "bytes": 23881743,
+    "sha256": "9d704c252dc982a50111ab5dcb6b2d71ea035cada225f3cdfbfe4013d94737e8"
+  }
+]

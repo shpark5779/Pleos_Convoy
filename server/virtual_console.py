@@ -1,5 +1,6 @@
 """ADB-forwarded Pleos Virtual Console controls. No TMAP SDK or third-party packages."""
 import json
+from http.client import RemoteDisconnected
 import math
 import threading
 import time
@@ -21,8 +22,16 @@ class VirtualConsole:
         self.gear = None
 
     def request(self, path, method="GET"):
-        with urlopen(Request(self.base + path, method=method), timeout=3) as response:
-            return json.load(response)
+        # Controls set absolute values and the lease uses a stable client ID:
+        # repeating after a dropped local HTTP connection is safe.
+        for attempt in range(3):
+            try:
+                with urlopen(Request(self.base + path, method=method), timeout=3) as response:
+                    return json.load(response)
+            except (RemoteDisconnected, ConnectionResetError, TimeoutError):
+                if attempt == 2:
+                    raise
+                time.sleep(.2)
 
     def pulse(self):
         return self.request("/browser/session?client=" + self.client, "POST")

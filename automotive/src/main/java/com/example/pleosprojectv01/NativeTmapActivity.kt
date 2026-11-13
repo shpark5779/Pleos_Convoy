@@ -106,6 +106,7 @@ class NativeTmapActivity : AppCompatActivity() {
         column.addView(controls)
         column.addView(FrameLayout(this).apply { id=R.id.native_tmap_container }, LinearLayout.LayoutParams(-1,0,1f))
         setContentView(column)
+        window.decorView.post { SpeedLimitBadge.attach(this) }
         location = PleosLocation(this, { p ->
             main.post { currentLocation=JSONObject().put("latitude",p.latitude).put("longitude",p.longitude)
                 .put("measured_at",p.timestampMillis/1000.0) }
@@ -196,6 +197,7 @@ class NativeTmapActivity : AppCompatActivity() {
                         }
                         manager.addMarker(marker); companionMarkerIds.add(id)
                     }
+                    // Companion updates only change markers. The SDK owns the driving camera.
                     companionsStatus.text="동행 차량 ${vehicles.size}대 · 보라색 자동차 · 3초 간격 갱신"
                     resultPrefs.edit().putInt("companion_count",vehicles.size)
                         .putString("companion_positions",vehicles.joinToString { "${it.id}:${it.latitude},${it.longitude}" })
